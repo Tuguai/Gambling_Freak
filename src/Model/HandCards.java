@@ -1,7 +1,21 @@
+package Model;
+
 
 public class HandCards {
 
-
+	private int numberOfCards;
+	private boolean hasWon;
+	private int[] card;
+	
+	public HandCards() {	
+		hasWon = false;
+		card = new int[18];
+		for(int i=0; i<=17; i++) {
+			card[i] = 0;
+		}
+	}
+	
+	
 	public int getNumberOfCards() {
 		return numberOfCards;
 	}
@@ -26,19 +40,6 @@ public class HandCards {
 		this.card = card;
 	}
 
-	private int numberOfCards;
-	private boolean hasWon;
-	private int[] card;
-	
-	public HandCards() {
-		
-		hasWon = false;
-		card = new int[18];
-		for(int i=0; i<=17; i++) {
-			card[i] = 0;
-		}
-		
-	}
 	
 	
 	

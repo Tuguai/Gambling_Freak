@@ -1,4 +1,7 @@
-import java.util.*;
+package Application;
+
+import Controller.*;
+import Model.*;
 
 public class Main {
 
