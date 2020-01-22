@@ -1,3 +1,4 @@
+namespace src.Model;
 
 class Card {
   suit;  // "hearts", "clubs", "diamonds", "spades" 
@@ -34,7 +35,7 @@ class Min2Card{
 
 class Player {   
    name;
-   ID;
+   id;
    0..1 -- * Card hand; 
    int score;
 
