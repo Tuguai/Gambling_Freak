@@ -1,10 +1,10 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.29.0.4181.a593105a9 modeling language!*/
 
-package src.Model;
+package Model;
 import java.util.*;
 
-// line 36 "../../model.ump"
+// line 8 "../../model.ump"
 public class Player
 {
 
@@ -14,28 +14,21 @@ public class Player
 
   //Player Attributes
   private String name;
-  private String id;
-  private int score;
+  private int currentBid;
 
   //Player Associations
   private List<Card> hand;
-  private ScoringTeam scoringTeam;
+  private Game game;
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public Player(String aName, String aId, int aScore, ScoringTeam aScoringTeam)
+  public Player(String aName, int aCurrentBid)
   {
     name = aName;
-    id = aId;
-    score = aScore;
+    currentBid = aCurrentBid;
     hand = new ArrayList<Card>();
-    boolean didAddScoringTeam = setScoringTeam(aScoringTeam);
-    if (!didAddScoringTeam)
-    {
-      throw new RuntimeException("Unable to create player due to scoringTeam");
-    }
   }
 
   //------------------------
@@ -50,35 +43,25 @@ public class Player
     return wasSet;
   }
 
-  public boolean setId(String aId)
+  public boolean setCurrentBid(int aCurrentBid)
   {
     boolean wasSet = false;
-    id = aId;
+    currentBid = aCurrentBid;
     wasSet = true;
     return wasSet;
   }
 
-  public boolean setScore(int aScore)
-  {
-    boolean wasSet = false;
-    score = aScore;
-    wasSet = true;
-    return wasSet;
-  }
-
+  /**
+   * These are the people playing.
+   */
   public String getName()
   {
     return name;
   }
 
-  public String getId()
+  public int getCurrentBid()
   {
-    return id;
-  }
-
-  public int getScore()
-  {
-    return score;
+    return currentBid;
   }
   /* Code from template association_GetMany */
   public Card getHand(int index)
@@ -111,9 +94,15 @@ public class Player
     return index;
   }
   /* Code from template association_GetOne */
-  public ScoringTeam getScoringTeam()
+  public Game getGame()
   {
-    return scoringTeam;
+    return game;
+  }
+
+  public boolean hasGame()
+  {
+    boolean has = game != null;
+    return has;
   }
   /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfHand()
@@ -186,34 +175,20 @@ public class Player
     }
     return wasAdded;
   }
-  /* Code from template association_SetOneToAtMostN */
-  public boolean setScoringTeam(ScoringTeam aScoringTeam)
+  /* Code from template association_SetOptionalOneToMany */
+  public boolean setGame(Game aGame)
   {
     boolean wasSet = false;
-    //Must provide scoringTeam to player
-    if (aScoringTeam == null)
+    Game existingGame = game;
+    game = aGame;
+    if (existingGame != null && !existingGame.equals(aGame))
     {
-      return wasSet;
+      existingGame.removeDealer(this);
     }
-
-    //scoringTeam already at maximum (2)
-    if (aScoringTeam.numberOfPlayers() >= ScoringTeam.maximumNumberOfPlayers())
+    if (aGame != null)
     {
-      return wasSet;
+      aGame.addDealer(this);
     }
-    
-    ScoringTeam existingScoringTeam = scoringTeam;
-    scoringTeam = aScoringTeam;
-    if (existingScoringTeam != null && !existingScoringTeam.equals(aScoringTeam))
-    {
-      boolean didRemove = existingScoringTeam.removePlayer(this);
-      if (!didRemove)
-      {
-        scoringTeam = existingScoringTeam;
-        return wasSet;
-      }
-    }
-    scoringTeam.addPlayer(this);
     wasSet = true;
     return wasSet;
   }
@@ -224,11 +199,11 @@ public class Player
     {
       hand.get(0).setPlayer(null);
     }
-    ScoringTeam placeholderScoringTeam = scoringTeam;
-    this.scoringTeam = null;
-    if(placeholderScoringTeam != null)
+    if (game != null)
     {
-      placeholderScoringTeam.removePlayer(this);
+      Game placeholderGame = game;
+      this.game = null;
+      placeholderGame.removeDealer(this);
     }
   }
 
@@ -237,8 +212,7 @@ public class Player
   {
     return super.toString() + "["+
             "name" + ":" + getName()+ "," +
-            "id" + ":" + getId()+ "," +
-            "score" + ":" + getScore()+ "]" + System.getProperties().getProperty("line.separator") +
-            "  " + "scoringTeam = "+(getScoringTeam()!=null?Integer.toHexString(System.identityHashCode(getScoringTeam())):"null");
+            "currentBid" + ":" + getCurrentBid()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "game = "+(getGame()!=null?Integer.toHexString(System.identityHashCode(getGame())):"null");
   }
 }

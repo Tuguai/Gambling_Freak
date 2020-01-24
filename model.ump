@@ -2,72 +2,25 @@ namespace src.Model;
 
 class Card {
   suit;  // "hearts", "clubs", "diamonds", "spades" 
-  rank;  // A23456789JQK
-  Boolean isBigJoker; 
-  Boolean isSmallJoker;
+  rank;  // 3456789JQKA2NM
 }
 
-class ThreeCard{  
-  isA Card;
-}
-
-class CardSet {
-  1 -- * Card;
-}
-
-class DiZhuCard {
-  int remainNum;
-  Boolean isDone;
-  isA CardSet;
-}
-
-class Min1Card {
-  int remainNum;
-  Boolean isDone;
-  isA CardSet;
-}
-
-class Min2Card{
-  int remainNum;
-  Boolean isDone;
-  isA CardSet;
-}
-
-class Player {   
+class Player {
+   // These are the people playing.
    name;
-   id;
    0..1 -- * Card hand; 
-   int score;
-
-}
-
-class DiZhu{ 
-  isA Player;
-}
-
-class Min1{
-  isA Player;
-}
-
-class Min2{  
-  isA Player;
-}
-
-class DiZhu_Candidate{
-  isA Player;
-}
-
-class ScoringTeam {
-   1 -- 1..2 Player;
-   Integer score;
-}
-
-class Match {
-
+   Integer currentBid;
 }
 
 class Game {
-
+   0..1 -- * Player dealer;
+   0..1 -- * Card;
 }
 
+class Board
+{
+   currentCardTpye;
+   String[] released;
+   1 -- 1 Game;
+}
 
