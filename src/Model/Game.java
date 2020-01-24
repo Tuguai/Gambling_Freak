@@ -25,18 +25,11 @@ public class Game
   {
     dealer = new ArrayList<Player>();
     cards = new ArrayList<Card>();
-    if (aBoard == null || aBoard.getGame() != null)
+    boolean didAddBoard = setBoard(aBoard);
+    if (!didAddBoard)
     {
-      throw new RuntimeException("Unable to create Game due to aBoard");
+      throw new RuntimeException("Unable to create game due to board");
     }
-    board = aBoard;
-  }
-
-  public Game(String aCurrentCardTpyeForBoard)
-  {
-    dealer = new ArrayList<Player>();
-    cards = new ArrayList<Card>();
-    board = new Board(aCurrentCardTpyeForBoard, this);
   }
 
   //------------------------
@@ -249,6 +242,34 @@ public class Game
     }
     return wasAdded;
   }
+  /* Code from template association_SetOneToOptionalOne */
+  public boolean setBoard(Board aNewBoard)
+  {
+    boolean wasSet = false;
+    if (aNewBoard == null)
+    {
+      //Unable to setBoard to null, as game must always be associated to a board
+      return wasSet;
+    }
+    
+    Game existingGame = aNewBoard.getGame();
+    if (existingGame != null && !equals(existingGame))
+    {
+      //Unable to setBoard, the current board already has a game, which would be orphaned if it were re-assigned
+      return wasSet;
+    }
+    
+    Board anOldBoard = board;
+    board = aNewBoard;
+    board.setGame(this);
+
+    if (anOldBoard != null)
+    {
+      anOldBoard.setGame(null);
+    }
+    wasSet = true;
+    return wasSet;
+  }
 
   public void delete()
   {
@@ -264,7 +285,7 @@ public class Game
     board = null;
     if (existingBoard != null)
     {
-      existingBoard.delete();
+      existingBoard.setGame(null);
     }
   }
 

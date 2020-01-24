@@ -23,22 +23,10 @@ public class Board
   // CONSTRUCTOR
   //------------------------
 
-  public Board(String aCurrentCardTpye, Game aGame)
-  {
-    currentCardTpye = aCurrentCardTpye;
-    released = new ArrayList<String>();
-    if (aGame == null || aGame.getBoard() != null)
-    {
-      throw new RuntimeException("Unable to create Board due to aGame");
-    }
-    game = aGame;
-  }
-
   public Board(String aCurrentCardTpye)
   {
     currentCardTpye = aCurrentCardTpye;
     released = new ArrayList<String>();
-    game = new Game(this);
   }
 
   //------------------------
@@ -105,6 +93,39 @@ public class Board
   public Game getGame()
   {
     return game;
+  }
+
+  public boolean hasGame()
+  {
+    boolean has = game != null;
+    return has;
+  }
+  /* Code from template association_SetOptionalOneToOne */
+  public boolean setGame(Game aNewGame)
+  {
+    boolean wasSet = false;
+    if (game != null && !game.equals(aNewGame) && equals(game.getBoard()))
+    {
+      //Unable to setGame, as existing game would become an orphan
+      return wasSet;
+    }
+
+    game = aNewGame;
+    Board anOldBoard = aNewGame != null ? aNewGame.getBoard() : null;
+
+    if (!this.equals(anOldBoard))
+    {
+      if (anOldBoard != null)
+      {
+        anOldBoard.game = null;
+      }
+      if (game != null)
+      {
+        game.setBoard(this);
+      }
+    }
+    wasSet = true;
+    return wasSet;
   }
 
   public void delete()

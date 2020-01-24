@@ -21,6 +21,6 @@ class Board
 {
    currentCardTpye;
    String[] released;
-   1 -- 1 Game;
+   1 -- 0..1 Game;
 }
 
