@@ -6,6 +6,8 @@ public class HandCards {
 	private int numberOfCards;
 	private boolean hasWon;
 	private int[] card;
+	// how to represent color?
+	// using an 2D 4rx18c size table? 黑桃 int[0][c] = 1; 红心 int[1][c] = 1; 对应花色位置行为1
 	
 	public HandCards() {	
 		hasWon = false;
