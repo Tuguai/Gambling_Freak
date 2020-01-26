@@ -80,8 +80,8 @@ public class Controller {
         Card s15 = new Card("spade", "2");
         Card d15 = new Card("diamond", "2");
         
-        Card j1 = new Card("black", "joker");
-        Card j2 = new Card("red", "joker");
+        Card j1 = new Card("black","joker"); //joker
+        Card j2 = new Card("red", "JOKER"); //JOKER
 
 		//Task1-1£º write 3456789JQKA2NM with four different colors
 		game.addCard(c3);
