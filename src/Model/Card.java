@@ -1,7 +1,7 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.29.0.4181.a593105a9 modeling language!*/
 
-package src.Model;
+package Model;
 
 // line 3 "../../model.ump"
 public class Card
@@ -14,28 +14,19 @@ public class Card
   //Card Attributes
   private String suit;
   private String rank;
-  private boolean isBigJoker;
-  private boolean isSmallJoker;
 
   //Card Associations
-  private CardSet cardSet;
   private Player player;
+  private Game game;
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public Card(String aSuit, String aRank, boolean aIsBigJoker, boolean aIsSmallJoker, CardSet aCardSet)
+  public Card(String aSuit, String aRank)
   {
     suit = aSuit;
     rank = aRank;
-    isBigJoker = aIsBigJoker;
-    isSmallJoker = aIsSmallJoker;
-    boolean didAddCardSet = setCardSet(aCardSet);
-    if (!didAddCardSet)
-    {
-      throw new RuntimeException("Unable to create card due to cardSet");
-    }
   }
 
   //------------------------
@@ -58,22 +49,6 @@ public class Card
     return wasSet;
   }
 
-  public boolean setIsBigJoker(boolean aIsBigJoker)
-  {
-    boolean wasSet = false;
-    isBigJoker = aIsBigJoker;
-    wasSet = true;
-    return wasSet;
-  }
-
-  public boolean setIsSmallJoker(boolean aIsSmallJoker)
-  {
-    boolean wasSet = false;
-    isSmallJoker = aIsSmallJoker;
-    wasSet = true;
-    return wasSet;
-  }
-
   /**
    * "hearts", "clubs", "diamonds", "spades"
    */
@@ -83,36 +58,11 @@ public class Card
   }
 
   /**
-   * A23456789JQK
+   * 3456789JQKA2NM
    */
   public String getRank()
   {
     return rank;
-  }
-
-  public boolean getIsBigJoker()
-  {
-    return isBigJoker;
-  }
-
-  public boolean getIsSmallJoker()
-  {
-    return isSmallJoker;
-  }
-  /* Code from template attribute_IsBoolean */
-  public boolean isIsBigJoker()
-  {
-    return isBigJoker;
-  }
-  /* Code from template attribute_IsBoolean */
-  public boolean isIsSmallJoker()
-  {
-    return isSmallJoker;
-  }
-  /* Code from template association_GetOne */
-  public CardSet getCardSet()
-  {
-    return cardSet;
   }
   /* Code from template association_GetOne */
   public Player getPlayer()
@@ -125,24 +75,16 @@ public class Card
     boolean has = player != null;
     return has;
   }
-  /* Code from template association_SetOneToMany */
-  public boolean setCardSet(CardSet aCardSet)
+  /* Code from template association_GetOne */
+  public Game getGame()
   {
-    boolean wasSet = false;
-    if (aCardSet == null)
-    {
-      return wasSet;
-    }
+    return game;
+  }
 
-    CardSet existingCardSet = cardSet;
-    cardSet = aCardSet;
-    if (existingCardSet != null && !existingCardSet.equals(aCardSet))
-    {
-      existingCardSet.removeCard(this);
-    }
-    cardSet.addCard(this);
-    wasSet = true;
-    return wasSet;
+  public boolean hasGame()
+  {
+    boolean has = game != null;
+    return has;
   }
   /* Code from template association_SetOptionalOneToMany */
   public boolean setPlayer(Player aPlayer)
@@ -161,20 +103,37 @@ public class Card
     wasSet = true;
     return wasSet;
   }
+  /* Code from template association_SetOptionalOneToMany */
+  public boolean setGame(Game aGame)
+  {
+    boolean wasSet = false;
+    Game existingGame = game;
+    game = aGame;
+    if (existingGame != null && !existingGame.equals(aGame))
+    {
+      existingGame.removeCard(this);
+    }
+    if (aGame != null)
+    {
+      aGame.addCard(this);
+    }
+    wasSet = true;
+    return wasSet;
+  }
 
   public void delete()
   {
-    CardSet placeholderCardSet = cardSet;
-    this.cardSet = null;
-    if(placeholderCardSet != null)
-    {
-      placeholderCardSet.removeCard(this);
-    }
     if (player != null)
     {
       Player placeholderPlayer = player;
       this.player = null;
       placeholderPlayer.removeHand(this);
+    }
+    if (game != null)
+    {
+      Game placeholderGame = game;
+      this.game = null;
+      placeholderGame.removeCard(this);
     }
   }
 
@@ -183,10 +142,8 @@ public class Card
   {
     return super.toString() + "["+
             "suit" + ":" + getSuit()+ "," +
-            "rank" + ":" + getRank()+ "," +
-            "isBigJoker" + ":" + getIsBigJoker()+ "," +
-            "isSmallJoker" + ":" + getIsSmallJoker()+ "]" + System.getProperties().getProperty("line.separator") +
-            "  " + "cardSet = "+(getCardSet()!=null?Integer.toHexString(System.identityHashCode(getCardSet())):"null") + System.getProperties().getProperty("line.separator") +
-            "  " + "player = "+(getPlayer()!=null?Integer.toHexString(System.identityHashCode(getPlayer())):"null");
+            "rank" + ":" + getRank()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "player = "+(getPlayer()!=null?Integer.toHexString(System.identityHashCode(getPlayer())):"null") + System.getProperties().getProperty("line.separator") +
+            "  " + "game = "+(getGame()!=null?Integer.toHexString(System.identityHashCode(getGame())):"null");
   }
 }
