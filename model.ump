@@ -24,3 +24,14 @@ class Board
    1 -- 0..1 Game;
 }
 
+class FL
+{
+      1 <@>- 0..1 Game currentGame;
+      1 <@>- 0..1 Board board;
+  	1 <@>- * User users; 
+  }
+
+class User {
+	unique String name;
+}
+
