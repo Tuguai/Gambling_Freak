@@ -4,15 +4,19 @@ import java.util.List;
 
 import Model.Board;
 import Model.Card;
+import Model.FL;
 import Model.Game;
 import Model.HandCards;
 import Model.Player;
+import Application.FightTheLandlordApplication;
+import Application.Main2;
 
 public class Controller {
 	
 	public static void initailizeGame() {
-		Board board = new Board("0");
-		Game game = new Game(board);
+		FL currentFL = FightTheLandlordApplication.getFL();
+		Board board = new Board("0",currentFL);
+		Game game = new Game(board, currentFL);
 		Player player1 = new Player("Tom", 100);
 		Player player2 = new Player("Jerry", 100);
 		Card c3 = new Card("club", "3");
@@ -181,6 +185,23 @@ public class Controller {
 	public static String StraightCard(Player player, String str) {
 		
 		//Task4-1: add here
+		return str;	
+	}
+	
+	
+	
+	/**
+	 * Feature:DropWall
+	 * 
+	 * @author Yuelin Liu
+	 * @param wallmove WallMove candidate to be check whether it is valid(to avoid overlapping).
+	 * @return boolean whether there is a wall in the same position.
+	 * @exception nothing
+	 * 
+	 */
+	public static String DoubleCard(Player player, String str) {
+		
+		//Task3-1: add here
 		return str;	
 	}
 	

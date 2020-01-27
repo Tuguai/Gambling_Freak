@@ -18,15 +18,21 @@ public class Board
 
   //Board Associations
   private Game game;
+  private FL fL;
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public Board(String aCurrentCardTpye)
+  public Board(String aCurrentCardTpye, FL aFL)
   {
     currentCardTpye = aCurrentCardTpye;
     released = new ArrayList<String>();
+    boolean didAddFL = setFL(aFL);
+    if (!didAddFL)
+    {
+      throw new RuntimeException("Unable to create board due to fL");
+    }
   }
 
   //------------------------
@@ -100,6 +106,11 @@ public class Board
     boolean has = game != null;
     return has;
   }
+  /* Code from template association_GetOne */
+  public FL getFL()
+  {
+    return fL;
+  }
   /* Code from template association_SetOptionalOneToOne */
   public boolean setGame(Game aNewGame)
   {
@@ -127,6 +138,34 @@ public class Board
     wasSet = true;
     return wasSet;
   }
+  /* Code from template association_SetOneToOptionalOne */
+  public boolean setFL(FL aNewFL)
+  {
+    boolean wasSet = false;
+    if (aNewFL == null)
+    {
+      //Unable to setFL to null, as board must always be associated to a fL
+      return wasSet;
+    }
+    
+    Board existingBoard = aNewFL.getBoard();
+    if (existingBoard != null && !equals(existingBoard))
+    {
+      //Unable to setFL, the current fL already has a board, which would be orphaned if it were re-assigned
+      return wasSet;
+    }
+    
+    FL anOldFL = fL;
+    fL = aNewFL;
+    fL.setBoard(this);
+
+    if (anOldFL != null)
+    {
+      anOldFL.setBoard(null);
+    }
+    wasSet = true;
+    return wasSet;
+  }
 
   public void delete()
   {
@@ -136,6 +175,12 @@ public class Board
     {
       existingGame.delete();
     }
+    FL existingFL = fL;
+    fL = null;
+    if (existingFL != null)
+    {
+      existingFL.setBoard(null);
+    }
   }
 
 
@@ -143,6 +188,7 @@ public class Board
   {
     return super.toString() + "["+
             "currentCardTpye" + ":" + getCurrentCardTpye()+ "]" + System.getProperties().getProperty("line.separator") +
-            "  " + "game = "+(getGame()!=null?Integer.toHexString(System.identityHashCode(getGame())):"null");
+            "  " + "game = "+(getGame()!=null?Integer.toHexString(System.identityHashCode(getGame())):"null") + System.getProperties().getProperty("line.separator") +
+            "  " + "fL = "+(getFL()!=null?Integer.toHexString(System.identityHashCode(getFL())):"null");
   }
 }

@@ -16,12 +16,13 @@ public class Game
   private List<Player> dealer;
   private List<Card> cards;
   private Board board;
+  private FL fL;
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public Game(Board aBoard)
+  public Game(Board aBoard, FL aFL)
   {
     dealer = new ArrayList<Player>();
     cards = new ArrayList<Card>();
@@ -29,6 +30,11 @@ public class Game
     if (!didAddBoard)
     {
       throw new RuntimeException("Unable to create game due to board");
+    }
+    boolean didAddFL = setFL(aFL);
+    if (!didAddFL)
+    {
+      throw new RuntimeException("Unable to create currentGame due to fL");
     }
   }
 
@@ -99,6 +105,11 @@ public class Game
   public Board getBoard()
   {
     return board;
+  }
+  /* Code from template association_GetOne */
+  public FL getFL()
+  {
+    return fL;
   }
   /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfDealer()
@@ -270,6 +281,34 @@ public class Game
     wasSet = true;
     return wasSet;
   }
+  /* Code from template association_SetOneToOptionalOne */
+  public boolean setFL(FL aNewFL)
+  {
+    boolean wasSet = false;
+    if (aNewFL == null)
+    {
+      //Unable to setFL to null, as currentGame must always be associated to a fL
+      return wasSet;
+    }
+    
+    Game existingCurrentGame = aNewFL.getCurrentGame();
+    if (existingCurrentGame != null && !equals(existingCurrentGame))
+    {
+      //Unable to setFL, the current fL already has a currentGame, which would be orphaned if it were re-assigned
+      return wasSet;
+    }
+    
+    FL anOldFL = fL;
+    fL = aNewFL;
+    fL.setCurrentGame(this);
+
+    if (anOldFL != null)
+    {
+      anOldFL.setCurrentGame(null);
+    }
+    wasSet = true;
+    return wasSet;
+  }
 
   public void delete()
   {
@@ -286,6 +325,12 @@ public class Game
     if (existingBoard != null)
     {
       existingBoard.setGame(null);
+    }
+    FL existingFL = fL;
+    fL = null;
+    if (existingFL != null)
+    {
+      existingFL.setCurrentGame(null);
     }
   }
 
