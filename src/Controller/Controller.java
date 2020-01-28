@@ -87,7 +87,7 @@ public class Controller {
         Card j1 = new Card("black","j"); //joker
         Card j2 = new Card("red", "J"); //JOKER
 
-		//Task1-1£º write 3456789JQKA2NM with four different colors
+		//Task1-1ï¿½ï¿½ write 3456789JQKA2NM with four different colors
 		game.addCard(c3);
 		game.addCard(h3);
 		game.addCard(s3);
@@ -207,8 +207,36 @@ public class Controller {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
 		
+		legal = legalNameStraightCards(str);
+		legal = checkPlayHasCardsInHand(temp,str);
+		if(!legal) return "0";
+		
+		int[] command = convertStringIntoArray(str);
 		
 		
+		return str;	
+	}
+	
+	/**
+	 * 
+	 * @author Yuelin Liu
+	 * @param  remove card without suit
+	 * @exception 
+	 * 
+	 */
+	private static void removeSingleCardRandomly(Player player, char rank) {
+		
+	}
+	
+	/**
+	 * 
+	 * @author Yuelin Liu
+	 * @param  legal name for straight cards
+	 * @exception 
+	 * 
+	 */
+	private static boolean legalNameStraightCards(String str) {
+		boolean legal = true;
 		if(str.length()==5) {
 			int asciiS = (int)str.charAt(0);
 			int value = convertCharToInt(str.charAt(0));
@@ -324,11 +352,8 @@ public class Controller {
 		else {
 			legal = false;
 		}
-		
-		
-		return str;	
+		return legal;
 	}
-	
 	
 	
 	/**
@@ -338,21 +363,43 @@ public class Controller {
 	 * @exception 
 	 * 
 	 */
-	private static boolean checkPlayHasCardsInHand(Player player, List<Card> temp, String str) {
+	private static boolean checkPlayHasCardsInHand(List<Card> temp, String str) {
 		
 		//step 1: convert cards into an array
-		//step 2: convert the String
-		//step 3; for loop to check each char in the String
+		int[] hands = convertCardsIntoArray(temp);
 		
-		return false;
+		//step 2: convert the String
+		int[] command = convertStringIntoArray(str);
+		
+		//step 3; for loop to check each char in the String
+		for(int i=0; i<=17; i++) {
+			if(command[i]>hands[i])
+				return false;
+		}
+		return true;
 	}
 	private static int[] convertCardsIntoArray(List<Card> temp) {
 		//step 1
-		return null;
+		int[] a = new int[18];
+		for(int i=0; i<=17; i++) { a[i] = 0;}
+		for(int i=0; i<=temp.size(); i++) {
+			char m = temp.get(i).getRank().charAt(0);
+			int value = convertCharToInt(m);
+			a[value] ++;
+		}
+		return a;
 	}
-	private static int[] convertStringIntoArray(List<Card> temp) {
+	private static int[] convertStringIntoArray(String str) {
 		//step 2
-		return null;
+		int[] a = new int[18];
+		for(int i=0; i<=17; i++) { a[i] = 0;}
+		for(int i=0; i<=str.length(); i++) {
+			char m = str.charAt(i);
+			int value = convertCharToInt(m);
+			a[value] ++;
+		}
+		
+		return a;
 	}
 
 	
@@ -369,6 +416,15 @@ public class Controller {
 			return ( (int)chr - 48    );
 		}
 		
+		if(   (chr=='J')   ) {
+			return 17;
+		}
+		if(   (chr=='j')   ) {
+			return 16;
+		}
+		if(   (chr=='2')   ) {
+			return 15;
+		}
 		if(   (chr=='A')  ||   (chr=='a')   ) {
 			return 14;
 		}
