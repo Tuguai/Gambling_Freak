@@ -2,7 +2,7 @@ namespace src.Model;
 
 class Card {
   suit;  // "hearts", "clubs", "diamonds", "spades" 
-  rank;  // 3456789JQKA2NM
+  char rank;  // 3456789JQKA2NM
 }
 
 class Player {

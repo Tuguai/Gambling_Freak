@@ -19,73 +19,73 @@ public class Controller {
 		Game game = new Game(board, currentFL);
 		Player player1 = new Player("Tom", 100);
 		Player player2 = new Player("Jerry", 100);
-		Card c3 = new Card("club", "3");
-		Card h3 = new Card("heart", "3");
-		Card s3 = new Card("spade", "3");
-		Card d3 = new Card("diamond", "3");
+		Card c3 = new Card("club", '3');
+		Card h3 = new Card("heart", '3');
+		Card s3 = new Card("spade", '3');
+		Card d3 = new Card("diamond", '3');
 		
-		Card c4 = new Card("club", "4");
-		Card h4 = new Card("heart", "4");
-		Card s4 = new Card("spade", "4");
-		Card d4 = new Card("diamond", "4");
+		Card c4 = new Card("club", '4');
+		Card h4 = new Card("heart", '4');
+		Card s4 = new Card("spade", '4');
+		Card d4 = new Card("diamond", '4');
 		
-		Card c5 = new Card("club", "5");
-        Card h5 = new Card("heart", "5");
-        Card s5 = new Card("spade", "5");
-        Card d5 = new Card("diamond", "5");
+		Card c5 = new Card("club", '5');
+        Card h5 = new Card("heart", '5');
+        Card s5 = new Card("spade", '5');
+        Card d5 = new Card("diamond", '5');
         
-        Card c6 = new Card("club", "6");
-        Card h6 = new Card("heart", "6");
-        Card s6 = new Card("spade", "6");
-        Card d6 = new Card("diamond", "6");
+        Card c6 = new Card("club", '6');
+        Card h6 = new Card("heart", '6');
+        Card s6 = new Card("spade", '6');
+        Card d6 = new Card("diamond", '6');
         
-        Card c7 = new Card("club", "7");
-        Card h7 = new Card("heart", "7");
-        Card s7 = new Card("spade", "7");
-        Card d7 = new Card("diamond", "7");
+        Card c7 = new Card("club", '7');
+        Card h7 = new Card("heart", '7');
+        Card s7 = new Card("spade", '7');
+        Card d7 = new Card("diamond", '7');
         
-        Card c8 = new Card("club", "8");
-        Card h8 = new Card("heart", "8");
-        Card s8 = new Card("spade", "8");
-        Card d8 = new Card("diamond", "8");
+        Card c8 = new Card("club", '8');
+        Card h8 = new Card("heart", '8');
+        Card s8 = new Card("spade", '8');
+        Card d8 = new Card("diamond", '8');
         
-        Card c9 = new Card("club", "9");
-        Card h9 = new Card("heart", "9");
-        Card s9 = new Card("spade", "9");
-        Card d9 = new Card("diamond", "9");
+        Card c9 = new Card("club", '9');
+        Card h9 = new Card("heart", '9');
+        Card s9 = new Card("spade", '9');
+        Card d9 = new Card("diamond", '9');
         
-        Card c10 = new Card("club", "T");
-        Card h10 = new Card("heart", "T");
-        Card s10 = new Card("spade", "T");
-        Card d10 = new Card("diamond", "T");
+        Card c10 = new Card("club", 'T');
+        Card h10 = new Card("heart", 'T');
+        Card s10 = new Card("spade", 'T');
+        Card d10 = new Card("diamond", 'T');
         
-        Card c11 = new Card("club", "J");
-        Card h11 = new Card("heart", "J");
-        Card s11 = new Card("spade", "J");
-        Card d11 = new Card("diamond", "J");
+        Card c11 = new Card("club", 'J');
+        Card h11 = new Card("heart", 'J');
+        Card s11 = new Card("spade", 'J');
+        Card d11 = new Card("diamond", 'J');
         
-        Card c12 = new Card("club", "Q");
-        Card h12 = new Card("heart", "Q");
-        Card s12 = new Card("spade", "Q");
-        Card d12 = new Card("diamond", "Q");
+        Card c12 = new Card("club", 'Q');
+        Card h12 = new Card("heart", 'Q');
+        Card s12 = new Card("spade", 'Q');
+        Card d12 = new Card("diamond", 'Q');
         
-        Card c13 = new Card("club", "K");
-        Card h13 = new Card("heart", "K");
-        Card s13 = new Card("spade", "K");
-        Card d13 = new Card("diamond", "K");
+        Card c13 = new Card("club", 'K');
+        Card h13 = new Card("heart", 'K');
+        Card s13 = new Card("spade", 'K');
+        Card d13 = new Card("diamond", 'K');
         
-        Card c14 = new Card("club", "A");
-        Card h14 = new Card("heart", "A");
-        Card s14 = new Card("spade", "A");
-        Card d14 = new Card("diamond", "A");
+        Card c14 = new Card("club", 'A');
+        Card h14 = new Card("heart", 'A');
+        Card s14 = new Card("spade", 'A');
+        Card d14 = new Card("diamond", 'A');
         
-        Card c15 = new Card("club", "2");
-        Card h15 = new Card("heart", "2");
-        Card s15 = new Card("spade", "2");
-        Card d15 = new Card("diamond", "2");
+        Card c15 = new Card("club", '2');
+        Card h15 = new Card("heart", '2');
+        Card s15 = new Card("spade", '2');
+        Card d15 = new Card("diamond", '2');
         
-        Card j1 = new Card("black","j"); //joker
-        Card j2 = new Card("red", "J"); //JOKER
+        Card j1 = new Card("black",'w'); //joker
+        Card j2 = new Card("red", 'W'); //JOKER
 
 		//Task1-1�� write 3456789JQKA2NM with four different colors
 		game.addCard(c3);
@@ -383,7 +383,7 @@ public class Controller {
 		int[] a = new int[18];
 		for(int i=0; i<=17; i++) { a[i] = 0;}
 		for(int i=0; i<=temp.size(); i++) {
-			char m = temp.get(i).getRank().charAt(0);
+			char m = temp.get(i).getRank();
 			int value = convertCharToInt(m);
 			a[value] ++;
 		}
@@ -416,10 +416,10 @@ public class Controller {
 			return ( (int)chr - 48    );
 		}
 		
-		if(   (chr=='J')   ) {
+		if(   (chr=='W')   ) {
 			return 17;
 		}
-		if(   (chr=='j')   ) {
+		if(   (chr=='w')   ) {
 			return 16;
 		}
 		if(   (chr=='2')   ) {

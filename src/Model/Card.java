@@ -13,7 +13,7 @@ public class Card
 
   //Card Attributes
   private String suit;
-  private String rank;
+  private char rank;
 
   //Card Associations
   private Player player;
@@ -23,7 +23,7 @@ public class Card
   // CONSTRUCTOR
   //------------------------
 
-  public Card(String aSuit, String aRank)
+  public Card(String aSuit, char aRank)
   {
     suit = aSuit;
     rank = aRank;
@@ -41,7 +41,7 @@ public class Card
     return wasSet;
   }
 
-  public boolean setRank(String aRank)
+  public boolean setRank(char aRank)
   {
     boolean wasSet = false;
     rank = aRank;
@@ -60,7 +60,7 @@ public class Card
   /**
    * 3456789JQKA2NM
    */
-  public String getRank()
+  public char getRank()
   {
     return rank;
   }
