@@ -168,7 +168,8 @@ public class Controller {
 		//Task2-1: tell whether str is a valid input
 		
 		for(Card c : temp) {
-			c.getRank() = ConvertStringToInt(str);//Task2-2: write a private function to convert string. ie. "3"-3,"J"-11,"A"-14
+			//c.getRank() = ConvertStringToInt(str);
+			//Task2-2: write a private function to convert string. ie. "3"-3,"J"-11,"A"-14
 		}
 		//Task2-3 make sure you have send your card in hand to the board
 		if(!legal) str = "false";
@@ -211,7 +212,9 @@ public class Controller {
 		legal = checkPlayHasCardsInHand(temp,str);
 		if(!legal) return "0";
 		
-		int[] command = convertStringIntoArray(str);
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
 		
 		
 		return str;	
@@ -225,6 +228,12 @@ public class Controller {
 	 * 
 	 */
 	private static void removeSingleCardRandomly(Player player, char rank) {
+		List<Card> temp = player.getHand();
+		for(int i=0; i<temp.size(); i++) {
+			if(temp.get(i).getRank()==rank) {
+				player.removeHand(temp.get(i));
+			}
+		}
 		
 	}
 	
