@@ -54,10 +54,10 @@ public class Controller {
         Card s9 = new Card("spade", "9");
         Card d9 = new Card("diamond", "9");
         
-        Card c10 = new Card("club", "10");
-        Card h10 = new Card("heart", "10");
-        Card s10 = new Card("spade", "10");
-        Card d10 = new Card("diamond", "10");
+        Card c10 = new Card("club", "T");
+        Card h10 = new Card("heart", "T");
+        Card s10 = new Card("spade", "T");
+        Card d10 = new Card("diamond", "T");
         
         Card c11 = new Card("club", "J");
         Card h11 = new Card("heart", "J");
@@ -84,8 +84,8 @@ public class Controller {
         Card s15 = new Card("spade", "2");
         Card d15 = new Card("diamond", "2");
         
-        Card j1 = new Card("black","joker"); //joker
-        Card j2 = new Card("red", "JOKER"); //JOKER
+        Card j1 = new Card("black","j"); //joker
+        Card j2 = new Card("red", "J"); //JOKER
 
 		//Task1-1£º write 3456789JQKA2NM with four different colors
 		game.addCard(c3);
@@ -176,37 +176,218 @@ public class Controller {
 		//Task2-4 pass your tester (Test.task2)
 	}
 	
+
+	
+	
+
 	public static String DoubleCard(Player player, String str) {
 		
 		//Task3-1: add here
+	
+		
+		
 		return str;	
 	}
 	
+	
+	/**
+	 * Feature:Straight
+	 * 
+	 * @author Yuelin Liu
+	 * @param 
+	 * @return 
+	 * @exception 
+	 * 
+	 */
 	public static String StraightCard(Player player, String str) {
 		
+		
 		//Task4-1: add here
+		
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		
+		
+		
+		if(str.length()==5) {
+			int asciiS = (int)str.charAt(0);
+			int value = convertCharToInt(str.charAt(0));
+			if( (value<3)  || (value>10) ) {
+				legal = false;
+			}
+			for(int i=0;i<=3;i++) {
+				int value1 = convertCharToInt(str.charAt(i));
+				int value2 = convertCharToInt(str.charAt(i+1));
+				if(value1+1 !=value2 ) {
+					legal = false;//check whether it is in sequence(increasing order)
+				}
+			}
+		}
+		else if(str.length()==6) {
+			int asciiS = (int)str.charAt(0);
+			int value = convertCharToInt(str.charAt(0));
+			if( (value<3)  || (value>9) ) {
+				legal = false;
+			}
+			for(int i=0;i<=4;i++) {
+				int value1 = convertCharToInt(str.charAt(i));
+				int value2 = convertCharToInt(str.charAt(i+1));
+				if(value1+1 !=value2 ) {
+					legal = false;//check whether it is in sequence(increasing order)
+				}
+			}
+		}
+		else if(str.length()==7) {
+			int asciiS = (int)str.charAt(0);
+			int value = convertCharToInt(str.charAt(0));
+			if( (value<3)  || (value>8) ) {
+				legal = false;
+			}
+			for(int i=0;i<=5;i++) {
+				int value1 = convertCharToInt(str.charAt(i));
+				int value2 = convertCharToInt(str.charAt(i+1));
+				if(value1+1 !=value2 ) {
+					legal = false;//check whether it is in sequence(increasing order)
+				}
+			}
+		}
+		else if(str.length()==8) {
+			int asciiS = (int)str.charAt(0);
+			int value = convertCharToInt(str.charAt(0));
+			if( (value<3)  || (value>7) ) {
+				legal = false;
+			}
+			for(int i=0;i<=6;i++) {
+				int value1 = convertCharToInt(str.charAt(i));
+				int value2 = convertCharToInt(str.charAt(i+1));
+				if(value1+1 !=value2 ) {
+					legal = false;//check whether it is in sequence(increasing order)
+				}
+			}
+		}
+		else if(str.length()==9) {
+			int asciiS = (int)str.charAt(0);
+			int value = convertCharToInt(str.charAt(0));
+			if( (value<3)  || (value>6) ) {
+				legal = false;
+			}
+			for(int i=0;i<=7;i++) {
+				int value1 = convertCharToInt(str.charAt(i));
+				int value2 = convertCharToInt(str.charAt(i+1));
+				if(value1+1 !=value2 ) {
+					legal = false;//check whether it is in sequence(increasing order)
+				}
+			}
+		}
+		else if(str.length()==10) {
+			int asciiS = (int)str.charAt(0);
+			int value = convertCharToInt(str.charAt(0));
+			if( (value<3)  || (value>5) ) {
+				legal = false;
+			}
+			for(int i=0;i<=8;i++) {
+				int value1 = convertCharToInt(str.charAt(i));
+				int value2 = convertCharToInt(str.charAt(i+1));
+				if(value1+1 !=value2 ) {
+					legal = false;//check whether it is in sequence(increasing order)
+				}
+			}
+		}
+		else if(str.length()==11) {
+			int asciiS = (int)str.charAt(0);
+			int value = convertCharToInt(str.charAt(0));
+			if( (value<3)  || (value>4) ) {
+				legal = false;
+			}
+			for(int i=0;i<=9;i++) {
+				int value1 = convertCharToInt(str.charAt(i));
+				int value2 = convertCharToInt(str.charAt(i+1));
+				if(value1+1 !=value2 ) {
+					legal = false;//check whether it is in sequence(increasing order)
+				}
+			}
+		}
+		else if(str.length()==12) {
+			int asciiS = (int)str.charAt(0);
+			int value = convertCharToInt(str.charAt(0));
+			if( (value<3)  || (value>3) ) {
+				legal = false;
+			}
+			for(int i=0;i<=10;i++) {
+				int value1 = convertCharToInt(str.charAt(i));
+				int value2 = convertCharToInt(str.charAt(i+1));
+				if(value1+1 !=value2 ) {
+					legal = false;//check whether it is in sequence(increasing order)
+				}
+			}
+		}
+		else {
+			legal = false;
+		}
+		
+		
 		return str;	
 	}
 	
 	
 	
 	/**
-	 * Feature:DropWall
 	 * 
 	 * @author Yuelin Liu
-	 * @param wallmove WallMove candidate to be check whether it is valid(to avoid overlapping).
-	 * @return boolean whether there is a wall in the same position.
-	 * @exception nothing
+	 * @param  checkPlayHasCardsInHand
+	 * @exception 
 	 * 
 	 */
-	public static String DoubleCard(Player player, String str) {
+	private static boolean checkPlayHasCardsInHand(Player player, List<Card> temp, String str) {
 		
-		//Task3-1: add here
-		return str;	
+		//step 1: convert cards into an array
+		//step 2: convert the String
+		//step 3; for loop to check each char in the String
+		
+		return false;
 	}
+	private static int[] convertCardsIntoArray(List<Card> temp) {
+		//step 1
+		return null;
+	}
+	private static int[] convertStringIntoArray(List<Card> temp) {
+		//step 2
+		return null;
+	}
+
 	
 	
-	
+	/**
+	 * 
+	 * @author Yuelin Liu
+	 * @param  3456789TJQKA --> 3456789 10 11 12 13 14
+	 * @exception No 2 and jokers!
+	 * 
+	 */
+	private static int convertCharToInt(char chr) {
+		if(  ((int)chr>=51)  ||   ((int)chr<=57) ) {
+			return ( (int)chr - 48    );
+		}
+		
+		if(   (chr=='A')  ||   (chr=='a')   ) {
+			return 14;
+		}
+		if(   (chr=='K')  ||   (chr=='k')   ) {
+			return 13;
+		}
+		if(   (chr=='Q')  ||   (chr=='q')   ) {
+			return 12;
+		}
+		if(   (chr=='J')  ||   (chr=='j')   ) {
+			return 11;
+		}
+		if(   (chr=='T')  ||   (chr=='t')   ) {
+			return 10;
+		}
+
+		return 0;
+		
+	}
 	
 	
 	
