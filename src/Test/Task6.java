@@ -3,7 +3,7 @@ import Application.FightTheLandlordApplication;
 import Controller.Controller;
 import Model.Card;
 import Model.Player;
-public class Task5 {
+public class Task6 {
 
 	public static void main(String args[]) {
 
