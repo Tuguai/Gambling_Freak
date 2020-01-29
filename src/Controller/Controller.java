@@ -504,11 +504,45 @@ public class Controller {
 			p2.addHand(Card.getWithId  (  (i*2))   );
 		}
 		
+	}
+	
+	/**
+	 * 
+	 * @author Yuelin Liu
+	 * @explain  assign the cards to two players
+	 * @exception 
+	 * 
+	 */
+	public static void assignCardTest2() {
 		
+		FL fl = FightTheLandlordApplication.getFL();
+		Player p1 = FightTheLandlordApplication.getFL().getCurrentGame().getDealer(0);
+		Player p2 = FightTheLandlordApplication.getFL().getCurrentGame().getDealer(1);
+		
+		for(int i=1; i<=27; i++) {
+			p1.addHand(Card.getWithId(i) );
+		}
+		for(int i=1; i<=27; i++) {
+			p2.addHand(Card.getWithId(i+27)  );
+		}
 		
 	}
 	
+
+	/**
+	 * 
+	 * @author Yuelin Liu
+	 * @explain  remove all the cards
+	 * @exception 
+	 * 
+	 */
 	
+	public static void removeAllCardsForPlayer(Player player) {
+		List<Card> cards = player.getHand();
+		for(int i=0; i<cards.size(); i++) {
+			player.removeHand(cards.get(i));
+		}	
+	}
 	
 	
 	
