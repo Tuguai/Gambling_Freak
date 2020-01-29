@@ -1,6 +1,7 @@
 package Test;
 import Application.FightTheLandlordApplication;
 import Controller.Controller;
+import Model.Player;
 public class Task4 {
 
 	public static void main(String args[]) {
@@ -11,7 +12,7 @@ public class Task4 {
 			System.out.println("Fail--1");
 		}
 		
-		
+		Player p1 = FightTheLandlordApplication.getFL().getCurrentGame().getDealer(0);
 		String t1 = Controller.StraightCard(p1, "2345");
 		String t2 = Controller.StraightCard(p1, "23456");
 		String t3 = Controller.StraightCard(p1, "abcde");
