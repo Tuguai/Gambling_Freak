@@ -4,7 +4,7 @@
 package Model;
 import java.util.*;
 
-// line 20 "../../model.ump"
+// line 21 "../../model.ump"
 public class Board
 {
 

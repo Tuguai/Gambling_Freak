@@ -13,6 +13,10 @@ public class Task4 {
 		
 		//Task3-3:add here
 		
+		
+		
+		
+		
 		System.out.println(pass?"Congratulations! You passed!" : "No! there is still some bug!");
 	}
 }

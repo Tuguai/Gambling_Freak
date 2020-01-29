@@ -3,6 +3,7 @@ namespace src.Model;
 class Card {
   suit;  // "hearts", "clubs", "diamonds", "spades" 
   char rank;  // 3456789JQKA2NM
+  unique Integer id;
 }
 
 class Player {

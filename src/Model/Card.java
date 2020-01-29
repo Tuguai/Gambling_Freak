@@ -2,10 +2,17 @@
 /*This code was generated using the UMPLE 1.29.0.4181.a593105a9 modeling language!*/
 
 package Model;
+import java.util.*;
 
 // line 3 "../../model.ump"
 public class Card
 {
+
+  //------------------------
+  // STATIC VARIABLES
+  //------------------------
+
+  private static Map<Integer, Card> cardsById = new HashMap<Integer, Card>();
 
   //------------------------
   // MEMBER VARIABLES
@@ -14,6 +21,7 @@ public class Card
   //Card Attributes
   private String suit;
   private char rank;
+  private int id;
 
   //Card Associations
   private Player player;
@@ -23,10 +31,14 @@ public class Card
   // CONSTRUCTOR
   //------------------------
 
-  public Card(String aSuit, char aRank)
+  public Card(String aSuit, char aRank, int aId)
   {
     suit = aSuit;
     rank = aRank;
+    if (!setId(aId))
+    {
+      throw new RuntimeException("Cannot create due to duplicate id");
+    }
   }
 
   //------------------------
@@ -49,6 +61,22 @@ public class Card
     return wasSet;
   }
 
+  public boolean setId(int aId)
+  {
+    boolean wasSet = false;
+    Integer anOldId = getId();
+    if (hasWithId(aId)) {
+      return wasSet;
+    }
+    id = aId;
+    wasSet = true;
+    if (anOldId != null) {
+      cardsById.remove(anOldId);
+    }
+    cardsById.put(aId, this);
+    return wasSet;
+  }
+
   /**
    * "hearts", "clubs", "diamonds", "spades"
    */
@@ -63,6 +91,21 @@ public class Card
   public char getRank()
   {
     return rank;
+  }
+
+  public int getId()
+  {
+    return id;
+  }
+  /* Code from template attribute_GetUnique */
+  public static Card getWithId(int aId)
+  {
+    return cardsById.get(aId);
+  }
+  /* Code from template attribute_HasUnique */
+  public static boolean hasWithId(int aId)
+  {
+    return getWithId(aId) != null;
   }
   /* Code from template association_GetOne */
   public Player getPlayer()
@@ -123,6 +166,7 @@ public class Card
 
   public void delete()
   {
+    cardsById.remove(getId());
     if (player != null)
     {
       Player placeholderPlayer = player;
@@ -142,7 +186,8 @@ public class Card
   {
     return super.toString() + "["+
             "suit" + ":" + getSuit()+ "," +
-            "rank" + ":" + getRank()+ "]" + System.getProperties().getProperty("line.separator") +
+            "rank" + ":" + getRank()+ "," +
+            "id" + ":" + getId()+ "]" + System.getProperties().getProperty("line.separator") +
             "  " + "player = "+(getPlayer()!=null?Integer.toHexString(System.identityHashCode(getPlayer())):"null") + System.getProperties().getProperty("line.separator") +
             "  " + "game = "+(getGame()!=null?Integer.toHexString(System.identityHashCode(getGame())):"null");
   }

@@ -4,7 +4,7 @@
 package Model;
 import java.util.*;
 
-// line 34 "../../model.ump"
+// line 35 "../../model.ump"
 public class User
 {
 

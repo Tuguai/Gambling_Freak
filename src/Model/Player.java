@@ -4,7 +4,7 @@
 package Model;
 import java.util.*;
 
-// line 8 "../../model.ump"
+// line 9 "../../model.ump"
 public class Player
 {
 
