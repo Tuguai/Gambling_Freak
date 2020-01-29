@@ -165,20 +165,43 @@ public class Controller {
 	
 	
 	public static String singleCard(Player player, String str) {
-		boolean legal = true;
+		boolean legal = false;
 		List<Card> temp = player.getHand();
 		
 		//Task2-1: tell whether str is a valid input
 		
-		for(Card c : temp) {
-			//c.getRank() = ConvertStringToInt(str);
-			//Task2-2: write a private function to convert string. ie. "3"-3,"J"-11,"A"-14
+		if(str.length()!=1) {
+			return "0";
 		}
+		
+		
+		char SmallJoker = 'w';
+		char x = str.charAt(0);
+		
+		if(x!=SmallJoker) {
+			x = Character.toUpperCase(x);
+		}
+		
+		int i=0;
+		for(i=0; i<temp.size();i++) {
+			if (temp.get(i).getRank()==x) {
+				legal =true;
+				break;
+			}
+		}
+		
+		//Task2-2: write a private function to convert string. ie. "3"-3,"J"-11,"A"-14
+		
 		//Task2-3 make sure you have send your card in hand to the board
-		if(!legal) str = "false";
-		return str;	
-		//Task2-4 pass your tester (Test.task2)
-	}
+		
+		if (legal){
+			player.removeHand(temp.get(i));
+			
+			return str;
+		}else {
+			return "0";
+			}
+		}
 	
 
 	
