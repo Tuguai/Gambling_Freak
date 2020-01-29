@@ -19,6 +19,9 @@ public class Controller {
 		Game game = new Game(board, currentFL);
 		Player player1 = new Player("Tom", 100);
 		Player player2 = new Player("Jerry", 100);
+		game.addDealer(player1);
+		game.addDealer(player2);
+		// by Changzi Chen
 		Card c3 = new Card("club", '3', 1);
 		Card h3 = new Card("heart", '3', 2);
 		Card s3 = new Card("spade", '3',3);
@@ -208,8 +211,7 @@ public class Controller {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
 		
-		legal = legalNameStraightCards(str);
-		legal = checkPlayHasCardsInHand(temp,str);
+		legal = (legalNameStraightCards(str) && checkPlayHasCardsInHand(temp,str));
 		if(!legal) return "0";
 		
 		for(int i=0; i<str.length(); i++) {
@@ -391,7 +393,7 @@ public class Controller {
 		//step 1
 		int[] a = new int[18];
 		for(int i=0; i<=17; i++) { a[i] = 0;}
-		for(int i=0; i<=temp.size(); i++) {
+		for(int i=0; i<temp.size(); i++) {
 			char m = temp.get(i).getRank();
 			int value = convertCharToInt(m);
 			a[value] ++;
@@ -402,7 +404,7 @@ public class Controller {
 		//step 2
 		int[] a = new int[18];
 		for(int i=0; i<=17; i++) { a[i] = 0;}
-		for(int i=0; i<=str.length(); i++) {
+		for(int i=0; i<str.length(); i++) {
 			char m = str.charAt(i);
 			int value = convertCharToInt(m);
 			a[value] ++;
@@ -421,7 +423,8 @@ public class Controller {
 	 * 
 	 */
 	private static int convertCharToInt(char chr) {
-		if(  ((int)chr>=51)  ||   ((int)chr<=57) ) {
+		//int a = (int)chr;
+		if(  ((int)chr>=51)  &&   ((int)chr<=57) ) {
 			return ( (int)chr - 48    );
 		}
 		
@@ -471,7 +474,12 @@ public class Controller {
 		Player p1 = FightTheLandlordApplication.getFL().getCurrentGame().getDealer(0);
 		Player p2 = FightTheLandlordApplication.getFL().getCurrentGame().getDealer(1);
 		
-		p1.addHand(Card.getWithId(1));
+		for(int i=1; i<=27; i++) {
+			p1.addHand(Card.getWithId  (  (i*2)-1 )   );
+		}
+		for(int i=1; i<=27; i++) {
+			p2.addHand(Card.getWithId  (  (i*2))   );
+		}
 		
 		
 		
