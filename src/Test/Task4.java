@@ -11,6 +11,17 @@ public class Task4 {
 			System.out.println("Fail--1");
 		}
 		
+		
+		String t1 = Controller.StraightCard(p1, "2345");
+		String t2 = Controller.StraightCard(p1, "23456");
+		String t3 = Controller.StraightCard(p1, "abcde");
+		
+		String t4 = t1+t2+t3;
+		if(!t4.equals("000")) {
+			pass = false;
+			System.out.println(t4);
+			System.out.println("Fail--2");
+		}
 		//Task3-3:add here
 		
 		
