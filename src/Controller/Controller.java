@@ -206,16 +206,60 @@ public class Controller {
 
 	
 	
-
+	/**
+	 * Feature: Double
+	 * @author: Jianmo Li
+	 * @param
+	 * @return
+	 * @exception
+	 * 
+	 */
 	public static String DoubleCard(Player player, String str) {
 		
 		//Task3-1: add here
-	
+		boolean legal=true;
+		List<Card> temp=player.getHand();
+		
+		legal=(legalNameDoubleCards(str)&&checkPlayHasCardsInHand(temp,str));
+		if(!legal) return "0";
+		
+		removeDoubleCarsRandomly(player,str.charAt(0))
 		
 		
 		return str;	
 	}
+	/**
+	 * 
+	 * @author Jianmo Li
+	 * @param  legal name for straight cards
+	 * @exception 
+	 * 
+	 */
+	private static boolean legalNameDoubleCards(String str) {
+		boolean legal = true;
+		if(str.length()==2) {
+			int asciiS = (int)str.charAt(0);
+			int value = convertCharToInt(str.charAt(0));
+			if( (value<3)  || (value>15) ) {
+				legal = false;
+			}
+		}
+		else {
+			legal = false;
+		}
+		return legal;
+	}
 	
+	/**
+	 * 
+	 * @author Jianmo Li
+	 * @param  remove 2 same cards without suit
+	 * @exception 
+	 * 
+	 */
+	private static void removeDoubleCardsRandomly(Player player, char rank) {
+		for(int i=0;i<2;i++) removeSingleCardRandomly(player,rank);
+	}
 	
 	/**
 	 * Feature:Straight
@@ -244,6 +288,8 @@ public class Controller {
 		
 		return str;	
 	}
+	
+	
 	
 	/**
 	 * 
