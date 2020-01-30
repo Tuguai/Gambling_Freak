@@ -223,7 +223,7 @@ public class Controller {
 		legal=(legalNameDoubleCards(str)&&checkPlayHasCardsInHand(temp,str));
 		if(!legal) return "0";
 		
-		removeDoubleCarsRandomly(player,str.charAt(0))
+		removeDoubleCardsRandomly(player,str.charAt(0));
 		
 		
 		return str;	
@@ -242,6 +242,12 @@ public class Controller {
 			int value = convertCharToInt(str.charAt(0));
 			if( (value<3)  || (value>15) ) {
 				legal = false;
+			}
+	
+			int value1 = convertCharToInt(str.charAt(0));
+			int value2 = convertCharToInt(str.charAt(1));
+			if(value1 !=value2 ) {
+				legal = false;//check whether it is in sequence(increasing order)
 			}
 		}
 		else {
