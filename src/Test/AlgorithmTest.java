@@ -46,24 +46,23 @@ public class AlgorithmTest {
 			if(oldHands[i]!=card) {
 				newHands[j] = oldHands[i];
 				j++;
-			}	
+			}	else {
+				card = 99;//to avoid remove twice.
+			}
+				
 		}	
 		return newHands;	
 	}
 	
 	
 	public static void main(String args[]) {
-		int[] a = new int[2];
-		int[] b = new int[3];
-		a[0] = 10;
-		a[1] = 5;
-		//a[2] = 3;
-		b[0] = 11;
-		b[1] = 4;
-		b[2] = 6;
 		
-		int answer = checkWin(a,b,-1);
-		System.out.print(answer);
+		int[] human = {10,5,3,4,4};
+		int[] computer = {3,4,6,8};
+	
+		
+		int answer = checkWin(human,computer,-1);
+		System.out.print("You should play: "+answer);
 		
 	}
 }
