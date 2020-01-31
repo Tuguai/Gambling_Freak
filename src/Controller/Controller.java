@@ -19,6 +19,9 @@ public class Controller {
 		Game game = new Game(board, currentFL);
 		Player player1 = new Player("Tom", 100);
 		Player player2 = new Player("Jerry", 100);
+		
+		game.addDealer(player1);
+		game.addDealer(player2);
 		Card c3 = new Card("club", '3');
 		Card h3 = new Card("heart", '3');
 		Card s3 = new Card("spade", '3');
@@ -193,10 +196,13 @@ public class Controller {
 	
 	/**
 	 * Feature:Straight
-	 * 
+	 * This method plays a straight card from a selected player. If the operation is 
+	 * legal(inputs are legal straight cards and cards are actually hold by the player),
+	 * the cards will be removed from player and appear on the board.
 	 * @author Yuelin Liu
-	 * @param 
-	 * @return 
+	 * @param player: selected player
+	 * @param str: specific straight cards in String
+	 * @return the staright cards in String if successful, otherwise "0"
 	 * @exception 
 	 * 
 	 */
@@ -219,6 +225,38 @@ public class Controller {
 		
 		return str;	
 	}
+	
+	/**
+	 * Feature: ThreeDTwo
+	 * This method plays a straight card from a selected player. If the operation is 
+	 * legal(inputs are legal straight cards and cards are actually hold by the player),
+	 * the cards will be removed from player and appear on the board.
+	 * @author Yuelin Liu
+	 * @param player: selected player
+	 * @param str: specific straight cards in String
+	 * @return the staright cards in String if successful, otherwise "0"
+	 * @exception 
+	 * 
+	 */
+	public static String ThreeDOne(Player player, String str) {
+		
+		
+		//Task4-1: add here
+		
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+	
+		legal = legalNameThreeDOne(str);
+		legal = checkPlayHasCardsInHand(temp,str);
+		if(!legal) return "0";
+		
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		
+		return str;	
+	}
+	
 	
 	/**
 	 * 
@@ -364,6 +402,38 @@ public class Controller {
 		return legal;
 	}
 	
+	/**
+	 * This method only see following example as legal input:
+	 * "3331", "TTT2","JJJQ" etc.
+	 * The "Three" part should always be at head of your input. 
+	 * @author Zichen Chang
+	 * @param  legal name for ThreeD
+	 * @exception 
+	 * 
+	 */
+	public static boolean legalNameThreeDOne(String str) {
+		// first check the length
+		if(str.length() != 4) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		// check input str doesn't include any illegal card
+		for(int i = 0; i <= 3; i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		// then check first three char is same
+		for(int i = 0; i <= 1; i++) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			if(c1 != c2) {
+				return false;
+			}
+		}
+		return true;
+	}
 	
 	/**
 	 * 
@@ -449,7 +519,8 @@ public class Controller {
 		if(   (chr=='T')  ||   (chr=='t')   ) {
 			return 10;
 		}
-
+		
+		// if input has something else other than legal handcard, return 0;
 		return 0;
 		
 	}
