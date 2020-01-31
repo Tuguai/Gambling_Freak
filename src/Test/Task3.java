@@ -15,6 +15,7 @@ public class Task3 {
 			System.out.println("Fail--1");
 		}
 		Player p1 = FightTheLandlordApplication.getFL().getCurrentGame().getDealer(0);
+
 		String t1 = Controller.DoubleCard(p1, "dad");
 		String t2 = Controller.DoubleCard(p1, "34");
 		String t3 = Controller.DoubleCard(p1, "JK");
@@ -51,6 +52,10 @@ public class Task3 {
 			System.out.println("Fail--6");
 		}
 		
+
+		Controller.StraightCard(p1, "34567");
+		Controller.ThreeDOne(p1, "3331");
+
 		//Task4-3:add here
 		
 		System.out.println(pass?"Congratulations! You passed!" : "No! there is still some bug!");
