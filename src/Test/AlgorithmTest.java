@@ -48,8 +48,7 @@ public class AlgorithmTest {
 				j++;
 			}	else {
 				card = 99;//to avoid remove twice.
-			}
-				
+			}			
 		}	
 		return newHands;	
 	}
@@ -57,11 +56,11 @@ public class AlgorithmTest {
 	
 	public static void main(String args[]) {
 		
-		int[] human = {10,5,3,4,4};
-		int[] computer = {3,4,6,8};
+		int[] human = {3,5,5,5,7,7};
+		int[] computer = {2,4,6,6,15};
 	
 		
-		int answer = checkWin(human,computer,-1);
+		int answer = checkWin(human,computer,4);
 		System.out.print("You should play: "+answer);
 		
 	}
