@@ -57,8 +57,8 @@ public class AlgorithmTest {
 	
 	public static void main(String args[]) {
 		
-		int[] human = {10,5,3,4,4};
-		int[] computer = {3,4,6,8};
+		int[] human = {4,4,7};
+		int[] computer = {12,12};
 	
 		
 		int answer = checkWin(human,computer,-1);

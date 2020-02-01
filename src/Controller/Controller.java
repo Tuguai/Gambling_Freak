@@ -298,8 +298,33 @@ public class Controller {
 		
 		return str;	
 	}
-	
-	
+
+	/**
+	 *
+	 * @param player
+	 * @param str
+	 * @return legal string
+	 */
+
+	public static String FourDTwo(Player player, String str){
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+
+		legal = legalNameFourDTwo(str);
+		legal = checkPlayHasCardsInHand(temp,str);
+
+		if(!legal) return "0";
+
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+
+		return str;
+
+	}
+
+
+
 	
 	/**
 	 * Feature: ThreeDTwo
@@ -509,7 +534,37 @@ public class Controller {
 		}
 		return true;
 	}
-	
+
+	/**
+	 * check if it is a legal sequence:
+	 * "KKKK34","333379"
+	 * @param str the user input combo
+	 * @return if the selected cards are legal
+	 */
+	public static boolean legalNameFourDTwo(String str) {
+		// first check the length
+		if(str.length() != 6) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		// check input str doesn't include any illegal card
+		for(int i = 0; i <= 4; i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		// then check first four char is same
+		for(int i = 0; i <= 1; i++) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			if(c1 != c2 || c1 != c2) {
+				return false;
+			}
+		}
+		return true;
+	}
 	
 	/**
 	 * 
