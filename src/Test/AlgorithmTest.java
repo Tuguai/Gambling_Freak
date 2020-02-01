@@ -56,8 +56,13 @@ public class AlgorithmTest {
 	
 	public static void main(String args[]) {
 		
+<<<<<<< HEAD
 		int[] human = {3,5,5,5,7,7};
 		int[] computer = {2,4,6,6,15};
+=======
+		int[] human = {4,4,7};
+		int[] computer = {12,12};
+>>>>>>> ea9c14656593b71d4ea7607ba86914e1c99a3cb5
 	
 		
 		int answer = checkWin(human,computer,4);

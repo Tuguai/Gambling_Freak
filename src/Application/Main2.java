@@ -20,7 +20,7 @@ public class Main2 {
 //	Card s4 = new Card("spade", "4");
 //	Card d4 = new Card("diamond", "4");
 //	//......
-//	//Task1£º write 3456789JQKA2NM with four different colors
+//	//Task write 3456789JQKA2NM with four different colors
 //	game.addCard(c3);
 //	game.addCard(h3);
 //	game.addCard(s3);
