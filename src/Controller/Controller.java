@@ -174,7 +174,7 @@ public class Controller {
 		if(str.length()!=1) {
 			return "0";
 		}
-		
+	
 		
 		char SmallJoker = 'w';
 		char x = str.charAt(0);
@@ -192,7 +192,7 @@ public class Controller {
 		}
 		
 		//Task2-2: write a private function to convert string. ie. "3"-3,"J"-11,"A"-14
-		
+		legal=(legalNameSingleCards(str));// yuelin changed
 		//Task2-3 make sure you have send your card in hand to the board
 		
 		if (legal){
@@ -282,7 +282,7 @@ public class Controller {
 		List<Card> temp = player.getHand();
 	
 		legal = legalNameThreeDOne(str);
-		legal = checkPlayHasCardsInHand(temp,str);
+		if(legal)legal = checkPlayHasCardsInHand(temp,str);
 		if(!legal) return "0";
 		
 		for(int i=0; i<str.length(); i++) {
@@ -313,7 +313,7 @@ public class Controller {
 		List<Card> temp = player.getHand();
 	
 		legal = legalNameThreeDTwo(str);
-		legal = checkPlayHasCardsInHand(temp,str);
+		if(legal)legal = checkPlayHasCardsInHand(temp,str);
 		if(!legal) return "0";
 		
 		for(int i=0; i<str.length(); i++) {
@@ -335,7 +335,7 @@ public class Controller {
 		List<Card> temp = player.getHand();
 	
 		legal = legalNameFourBomb(str);
-		legal = checkPlayHasCardsInHand(temp,str);
+		if(legal)legal = checkPlayHasCardsInHand(temp,str);
 	
 		if(!legal) return "0";
 	
@@ -359,7 +359,7 @@ public class Controller {
 		List<Card> temp = player.getHand();
 	
 		legal = legalNameFourDTwo(str);
-		legal = checkPlayHasCardsInHand(temp,str);
+		if(legal)legal = checkPlayHasCardsInHand(temp,str);
 	
 		if(!legal) return "0";
 	
@@ -383,7 +383,7 @@ public class Controller {
 		List<Card> temp = player.getHand();
 	
 		legal = legalNameFourDTwoPair(str);
-		legal = checkPlayHasCardsInHand(temp,str);
+		if(legal)legal = checkPlayHasCardsInHand(temp,str);
 	
 		if(!legal) return "0";
 	
@@ -406,19 +406,83 @@ public class Controller {
 	 */
 	public static String KingBomb(Player player, String str){
 		
-		if(str.equals("Ww") || str.equals("wW")){
-			List<Card> temp = player.getHand();
-			if(checkPlayHasCardsInHand(temp,str)) {
-				for(int i=0; i<str.length(); i++) {
-					removeSingleCardRandomly(player, str.charAt(i));
-				}
-				return str;
-			}else {
-				return "0";
-			}
-		}else {
-			return "0";
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+	
+		legal = legalNameKingBomb(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);
+	
+		if(!legal) return "0";
+	
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
 		}
+	
+		return str;
+	}
+	
+	/**
+	 * Feature:Plane
+	 * @author Yuelin Liu
+	 * @param str: 
+	 * @return the corresponding cards in String if successful, otherwise "0"
+	 * @exception 
+	 * 
+	 */
+	public static String PlaneAAA1BBB1CCC1DDD1EEE1(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNamePlaneAAA1BBB1CCC1DDD1EEE1(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String PlaneAAA1BBB1CCC1DDD1(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNamePlaneAAA1BBB1CCC1DDD1(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String PlaneAAA1BBB1CCC1(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNamePlaneAAA1BBB1CCC1(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String PlaneAAA22BBB22CCC22DDD22(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNamePlaneAAA22BBB22CCC22DDD22(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String PlaneAAA22BBB22CCC22(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNamePlaneAAA22BBB22CCC22(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
 	}
 	
 	
@@ -428,7 +492,192 @@ public class Controller {
 	
 	
 	
-	
+	/**
+	 * This method only see following example as legal input:
+	 * "3331", "TTT2","JJJQ" etc.
+	 * The "Three" part should always be at head of your input. 
+	 * @author Zichen Chang
+	 * @param  legal name for ThreeD
+	 * @exception 
+	 * 
+	 */
+	private static boolean legalNameThreeDOne(String str) {
+		// first check the length
+		if(str.length() != 4) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		// check input str doesn't include any illegal card
+		for(int i = 0; i <= 3; i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		// then check first three char is same
+		for(int i = 0; i <= 1; i++) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			if(c1 != c2) {
+				return false;
+			}
+		}
+		int c1 = convertCharToInt(str.charAt(1));
+		int c3 = convertCharToInt(str.charAt(3));
+		if(c1==c3) return false;
+		return true;
+	}
+
+
+	/**
+	 * This method only see following example as legal input:
+	 * "333AA", "TTT2","JJJQ" etc.
+	 * The "Three" part should always be at head of your input. 
+	 * @author Yuelin Liu
+	 * @param  legal name for ThreeD
+	 * @exception 
+	 * 
+	 */
+	private static boolean legalNameThreeDTwo(String str) {
+		// TODO Auto-generated method stub
+		if(str.length() != 5) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		// check input str doesn't include any illegal card
+		for(int i = 0; i <= 3; i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		// then check first three char is same
+		for(int i = 0; i <= 1; i++) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			if(c1 != c2) {
+				return false;
+			}
+		}
+		int c3 = convertCharToInt(str.charAt(3));
+		int c4 = convertCharToInt(str.charAt(4));
+		if(c3!=c4) return false;
+		return true;
+	}
+
+
+	private static boolean legalNamePlaneAAA22BBB22CCC22DDD22(String str) {
+		if(str.length() != 20) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 15; i=i+5) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			//int c5 = convertCharToInt(str.charAt(i+4));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		return true;
+	}
+
+
+	private static boolean legalNamePlaneAAA22BBB22CCC22(String str) {
+		if(str.length() != 15) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 10; i=i+5) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			//int c5 = convertCharToInt(str.charAt(i+4));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		return true;
+	}
+
+
+	private static boolean legalNamePlaneAAA1BBB1CCC1DDD1(String str) {
+		if(str.length() != 16) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 12; i=i+4) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		return true;
+	}
+
+
+	private static boolean legalNamePlaneAAA1BBB1CCC1(String str) {
+		if(str.length() != 12) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 8; i=i+4) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		return true;
+	}
+
+
+	private static boolean legalNamePlaneAAA1BBB1CCC1DDD1EEE1(String str) {
+		if(str.length() != 20) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 16; i=i+4) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		return true;
+	}
+
+
 	/**
 	 * Feature: FourBomb
 	 * @author Yuelin Liu
@@ -461,6 +710,47 @@ public class Controller {
 	}
 
 	
+	private static boolean legalNameSingleCards(String str) {
+		// TODO Auto-generated method stub
+		if(str.length() !=1) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		int c0 = convertCharToInt(str.charAt(0));
+		if(c0<3 || c0>17) return false;
+		return true;
+	}
+
+
+	/**
+	 * 
+	 * @author Jianmo Li
+	 * @param  legal name for straight cards
+	 * @exception 
+	 * 
+	 */
+	private static boolean legalNameDoubleCards(String str) {
+		boolean legal = true;
+		if(str.length()==2) {
+			int asciiS = (int)str.charAt(0);
+			int value = convertCharToInt(str.charAt(0));
+			if( (value<3)  || (value>15) ) {
+				legal = false;
+			}
+	
+			int value1 = convertCharToInt(str.charAt(0));
+			int value2 = convertCharToInt(str.charAt(1));
+			if(value1 !=value2 ) {
+				legal = false;//check whether it is in sequence(increasing order)
+			}
+		}
+		else {
+			legal = false;
+		}
+		return legal;
+	}
+
+
 	/**
 	 * Feature: FourDTwoPair
 	 * @author Yuelin Liu
@@ -536,62 +826,6 @@ public class Controller {
 	}
 
 
-	/**
-	 * 
-	 * @author Jianmo Li
-	 * @param  legal name for straight cards
-	 * @exception 
-	 * 
-	 */
-	private static boolean legalNameDoubleCards(String str) {
-		boolean legal = true;
-		if(str.length()==2) {
-			int asciiS = (int)str.charAt(0);
-			int value = convertCharToInt(str.charAt(0));
-			if( (value<3)  || (value>15) ) {
-				legal = false;
-			}
-	
-			int value1 = convertCharToInt(str.charAt(0));
-			int value2 = convertCharToInt(str.charAt(1));
-			if(value1 !=value2 ) {
-				legal = false;//check whether it is in sequence(increasing order)
-			}
-		}
-		else {
-			legal = false;
-		}
-		return legal;
-	}
-	
-	/**
-	 * 
-	 * @author Jianmo Li
-	 * @param  remove 2 same cards without suit
-	 * @exception 
-	 * 
-	 */
-	private static void removeDoubleCardsRandomly(Player player, char rank) {
-		for(int i=0;i<2;i++) removeSingleCardRandomly(player,rank);
-	}
-	
-	/**
-	 * 
-	 * @author Yuelin Liu
-	 * @param  remove card without suit
-	 * @exception 
-	 * 
-	 */
-	private static void removeSingleCardRandomly(Player player, char rank) {
-		List<Card> temp = player.getHand();
-		for(int i=0; i<temp.size(); i++) {
-			if(temp.get(i).getRank()==rank) {
-				player.removeHand(temp.get(i));
-			}
-		}
-		
-	}
-	
 	/**
 	 * 
 	 * @author Yuelin Liu
@@ -719,73 +953,10 @@ public class Controller {
 		return legal;
 	}
 	
-	/**
-	 * This method only see following example as legal input:
-	 * "3331", "TTT2","JJJQ" etc.
-	 * The "Three" part should always be at head of your input. 
-	 * @author Zichen Chang
-	 * @param  legal name for ThreeD
-	 * @exception 
-	 * 
-	 */
-	private static boolean legalNameThreeDOne(String str) {
-		// first check the length
-		if(str.length() != 4) {
-			System.out.println("Illegal input size, try again");
-			return false;
-		}
-		// check input str doesn't include any illegal card
-		for(int i = 0; i <= 3; i++) {
-			int value = convertCharToInt(str.charAt(i));
-			if(value == 0) {
-				return false;
-			}
-		}
-		// then check first three char is same
-		for(int i = 0; i <= 1; i++) {
-			int c1 = convertCharToInt(str.charAt(i));
-			int c2 = convertCharToInt(str.charAt(i+1));
-			if(c1 != c2) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	/**
-	 * This method only see following example as legal input:
-	 * "333AA", "TTT2","JJJQ" etc.
-	 * The "Three" part should always be at head of your input. 
-	 * @author Yuelin Liu
-	 * @param  legal name for ThreeD
-	 * @exception 
-	 * 
-	 */
-	private static boolean legalNameThreeDTwo(String str) {
+	private static boolean legalNameKingBomb(String str) {
+		if(str.equals("Ww") || str.equals("wW")) return true;
 		// TODO Auto-generated method stub
-		if(str.length() != 5) {
-			System.out.println("Illegal input size, try again");
-			return false;
-		}
-		// check input str doesn't include any illegal card
-		for(int i = 0; i <= 3; i++) {
-			int value = convertCharToInt(str.charAt(i));
-			if(value == 0) {
-				return false;
-			}
-		}
-		// then check first three char is same
-		for(int i = 0; i <= 1; i++) {
-			int c1 = convertCharToInt(str.charAt(i));
-			int c2 = convertCharToInt(str.charAt(i+1));
-			if(c1 != c2) {
-				return false;
-			}
-		}
-		int c3 = convertCharToInt(str.charAt(3));
-		int c4 = convertCharToInt(str.charAt(4));
-		if(c3!=c4) return false;
-		return true;
+		return false;
 	}
 
 
@@ -811,6 +982,36 @@ public class Controller {
 		}
 		return true;
 	}
+	/**
+	 * 
+	 * @author Jianmo Li
+	 * @param  remove 2 same cards without suit
+	 * @exception 
+	 * 
+	 */
+	private static void removeDoubleCardsRandomly(Player player, char rank) {
+		for(int i=0;i<2;i++) removeSingleCardRandomly(player,rank);
+	}
+
+
+	/**
+	 * 
+	 * @author Yuelin Liu
+	 * @param  remove card without suit
+	 * @exception 
+	 * 
+	 */
+	private static void removeSingleCardRandomly(Player player, char rank) {
+		List<Card> temp = player.getHand();
+		for(int i=0; i<temp.size(); i++) {
+			if(temp.get(i).getRank()==rank) {
+				player.removeHand(temp.get(i));
+			}
+		}
+		
+	}
+
+
 	private static int[] convertCardsIntoArray(List<Card> temp) {
 		//step 1
 		int[] a = new int[18];
