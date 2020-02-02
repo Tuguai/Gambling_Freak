@@ -230,6 +230,313 @@ public class Controller {
 		return str;	
 	}
 	/**
+	 * Feature:Straight
+	 * This method plays a straight card from a selected player. If the operation is 
+	 * legal(inputs are legal straight cards and cards are actually hold by the player),
+	 * the cards will be removed from player and appear on the board.
+	 * @author Yuelin Liu
+	 * @param player: selected player
+	 * @param str: specific straight cards in String
+	 * @return the staright cards in String if successful, otherwise "0"
+	 * @exception 
+	 * 
+	 */
+	public static String StraightCard(Player player, String str) {
+		
+		
+		//Task4-1: add here
+		
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		
+		legal = (legalNameStraightCards(str) && checkPlayHasCardsInHand(temp,str));
+		if(!legal) return "0";
+		
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		
+		
+		return str;	
+	}
+
+
+	/**
+	 * Feature: ThreeDOne
+	 * This method plays a straight card from a selected player. If the operation is 
+	 * legal(inputs are legal straight cards and cards are actually hold by the player),
+	 * the cards will be removed from player and appear on the board.
+	 * @author Zicheng Chang
+	 * @param player: selected player
+	 * @param str: specific straight cards in String
+	 * @return the staright cards in String if successful, otherwise "0"
+	 * @exception 
+	 * 
+	 */
+	public static String ThreeDOne(Player player, String str) {
+		
+		
+		//Task4-1: add here
+		
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+	
+		legal = legalNameThreeDOne(str);
+		legal = checkPlayHasCardsInHand(temp,str);
+		if(!legal) return "0";
+		
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		
+		return str;	
+	}
+
+	/**
+	 * Feature: ThreeDTwo
+	 * This method plays a straight card from a selected player. If the operation is 
+	 * legal(inputs are legal straight cards and cards are actually hold by the player),
+	 * the cards will be removed from player and appear on the board.
+	 * @author Zicheng Chang
+	 * @param player: selected player
+	 * @param str: specific straight cards in String
+	 * @return the staright cards in String if successful, otherwise "0"
+	 * @exception 
+	 * 
+	 */
+	public static String ThreeDTwo(Player player, String str) {
+		
+		
+		//Task4-1: add here
+		
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+	
+		legal = legalNameThreeDTwo(str);
+		legal = checkPlayHasCardsInHand(temp,str);
+		if(!legal) return "0";
+		
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		
+		return str;	
+	}
+
+	/**
+	 *
+	 * @author Yuelin Liu
+	 * @param str
+	 * @return legal string
+	 */
+	
+	public static String FourBomb(Player player, String str){
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+	
+		legal = legalNameFourBomb(str);
+		legal = checkPlayHasCardsInHand(temp,str);
+	
+		if(!legal) return "0";
+	
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	
+
+
+	/**
+	 *
+	 * @author Lide
+	 * @param str
+	 * @return legal string
+	 */
+	
+	public static String FourDTwoS(Player player, String str){
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+	
+		legal = legalNameFourDTwo(str);
+		legal = checkPlayHasCardsInHand(temp,str);
+	
+		if(!legal) return "0";
+	
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	
+	
+	/**
+	 * Feature: FourDTwoPair
+	 * @author Yuelin Liu
+	 * @param str: 
+	 * @return the staright cards in String if successful, otherwise "0"
+	 * @exception 
+	 * 
+	 */
+	public static String FourDTwoPair(Player player, String str){
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+	
+		legal = legalNameFourDTwoPair(str);
+		legal = checkPlayHasCardsInHand(temp,str);
+	
+		if(!legal) return "0";
+	
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+	
+		return str;
+	
+	}
+	
+	
+	/**
+	 * Feature:KingBomb
+	 * @author Yuelin Liu
+	 * @param str: 
+	 * @return the corresponding cards in String if successful, otherwise "0"
+	 * @exception 
+	 * 
+	 */
+	public static String KingBomb(Player player, String str){
+		
+		if(str.equals("Ww") || str.equals("wW")){
+			List<Card> temp = player.getHand();
+			if(checkPlayHasCardsInHand(temp,str)) {
+				for(int i=0; i<str.length(); i++) {
+					removeSingleCardRandomly(player, str.charAt(i));
+				}
+				return str;
+			}else {
+				return "0";
+			}
+		}else {
+			return "0";
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * Feature: FourBomb
+	 * @author Yuelin Liu
+	 * @param str: "3333"
+	 * @return the Bomb cards in String if successful, otherwise "0"
+	 * @exception 
+	 * 
+	 */
+	private static boolean legalNameFourBomb(String str) {
+		// TODO Auto-generated method stub
+		if(str.length() !=4) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		// check input str doesn't include any illegal card
+		for(int i = 0; i <= 3; i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		int c0 = convertCharToInt(str.charAt(0));
+		int c1 = convertCharToInt(str.charAt(1));
+		int c2 = convertCharToInt(str.charAt(2));
+		int c3 = convertCharToInt(str.charAt(3));
+		if(c0 != c1 || c1 != c2 || c2 != c3 ) {
+				return false;
+		}		
+		return true;
+	}
+
+	
+	/**
+	 * Feature: FourDTwoPair
+	 * @author Yuelin Liu
+	 * @param str: "33338899"
+	 * @return the corresponding cards in String if successful, otherwise "0"
+	 * @exception 
+	 * 
+	 */
+	private static boolean legalNameFourDTwoPair(String str) {
+		// TODO Auto-generated method stub
+		if(str.length() != 8) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		// check input str doesn't include any illegal card
+		for(int i = 0; i <= 7; i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		// then check first four char is same
+		for(int i = 0; i <= 1; i++) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			if(c1 != c2 || c3 != c2) {
+				return false;
+			}
+		}
+		int c0 = convertCharToInt(str.charAt(0));
+		int c4 = convertCharToInt(str.charAt(4));
+		int c5 = convertCharToInt(str.charAt(5));
+		int c6 = convertCharToInt(str.charAt(6));
+		int c7 = convertCharToInt(str.charAt(7));
+		if(c4==c0) return false;
+		if(c6==c0) return false;
+		if(c4!=c5) return false;
+		if(c6!=c7) return false;
+		return true;
+	}
+
+
+	/**
+	 * check if it is a legal sequence:
+	 * "KKKK34","333379"
+	 * @param str the user input combo
+	 * @return if the selected cards are legal
+	 */
+	private static boolean legalNameFourDTwo(String str) {
+		// first check the length
+		if(str.length() != 6) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		// check input str doesn't include any illegal card
+		for(int i = 0; i <= 5; i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		// then check first four char is same
+		for(int i = 0; i <= 1; i++) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			if(c1 != c2 || c3 != c2) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+
+	/**
 	 * 
 	 * @author Jianmo Li
 	 * @param  legal name for straight cards
@@ -267,96 +574,6 @@ public class Controller {
 	private static void removeDoubleCardsRandomly(Player player, char rank) {
 		for(int i=0;i<2;i++) removeSingleCardRandomly(player,rank);
 	}
-	
-	/**
-	 * Feature:Straight
-	 * This method plays a straight card from a selected player. If the operation is 
-	 * legal(inputs are legal straight cards and cards are actually hold by the player),
-	 * the cards will be removed from player and appear on the board.
-	 * @author Yuelin Liu
-	 * @param player: selected player
-	 * @param str: specific straight cards in String
-	 * @return the staright cards in String if successful, otherwise "0"
-	 * @exception 
-	 * 
-	 */
-	public static String StraightCard(Player player, String str) {
-		
-		
-		//Task4-1: add here
-		
-		boolean legal = true;
-		List<Card> temp = player.getHand();
-		
-		legal = (legalNameStraightCards(str) && checkPlayHasCardsInHand(temp,str));
-		if(!legal) return "0";
-		
-		for(int i=0; i<str.length(); i++) {
-			removeSingleCardRandomly(player, str.charAt(i));
-		}
-		
-		
-		return str;	
-	}
-
-	/**
-	 *
-	 * @param player
-	 * @param str
-	 * @return legal string
-	 */
-
-	public static String FourDTwo(Player player, String str){
-		boolean legal = true;
-		List<Card> temp = player.getHand();
-
-		legal = legalNameFourDTwo(str);
-		legal = checkPlayHasCardsInHand(temp,str);
-
-		if(!legal) return "0";
-
-		for(int i=0; i<str.length(); i++) {
-			removeSingleCardRandomly(player, str.charAt(i));
-		}
-
-		return str;
-
-	}
-
-
-
-	
-	/**
-	 * Feature: ThreeDTwo
-	 * This method plays a straight card from a selected player. If the operation is 
-	 * legal(inputs are legal straight cards and cards are actually hold by the player),
-	 * the cards will be removed from player and appear on the board.
-	 * @author Yuelin Liu
-	 * @param player: selected player
-	 * @param str: specific straight cards in String
-	 * @return the staright cards in String if successful, otherwise "0"
-	 * @exception 
-	 * 
-	 */
-	public static String ThreeDOne(Player player, String str) {
-		
-		
-		//Task4-1: add here
-		
-		boolean legal = true;
-		List<Card> temp = player.getHand();
-	
-		legal = legalNameThreeDOne(str);
-		legal = checkPlayHasCardsInHand(temp,str);
-		if(!legal) return "0";
-		
-		for(int i=0; i<str.length(); i++) {
-			removeSingleCardRandomly(player, str.charAt(i));
-		}
-		
-		return str;	
-	}
-	
 	
 	/**
 	 * 
@@ -511,7 +728,7 @@ public class Controller {
 	 * @exception 
 	 * 
 	 */
-	public static boolean legalNameThreeDOne(String str) {
+	private static boolean legalNameThreeDOne(String str) {
 		// first check the length
 		if(str.length() != 4) {
 			System.out.println("Illegal input size, try again");
@@ -536,36 +753,42 @@ public class Controller {
 	}
 
 	/**
-	 * check if it is a legal sequence:
-	 * "KKKK34","333379"
-	 * @param str the user input combo
-	 * @return if the selected cards are legal
+	 * This method only see following example as legal input:
+	 * "333AA", "TTT2","JJJQ" etc.
+	 * The "Three" part should always be at head of your input. 
+	 * @author Yuelin Liu
+	 * @param  legal name for ThreeD
+	 * @exception 
+	 * 
 	 */
-	public static boolean legalNameFourDTwo(String str) {
-		// first check the length
-		if(str.length() != 6) {
+	private static boolean legalNameThreeDTwo(String str) {
+		// TODO Auto-generated method stub
+		if(str.length() != 5) {
 			System.out.println("Illegal input size, try again");
 			return false;
 		}
 		// check input str doesn't include any illegal card
-		for(int i = 0; i <= 4; i++) {
+		for(int i = 0; i <= 3; i++) {
 			int value = convertCharToInt(str.charAt(i));
 			if(value == 0) {
 				return false;
 			}
 		}
-		// then check first four char is same
+		// then check first three char is same
 		for(int i = 0; i <= 1; i++) {
 			int c1 = convertCharToInt(str.charAt(i));
 			int c2 = convertCharToInt(str.charAt(i+1));
-			int c3 = convertCharToInt(str.charAt(i+2));
-			if(c1 != c2 || c1 != c2) {
+			if(c1 != c2) {
 				return false;
 			}
 		}
+		int c3 = convertCharToInt(str.charAt(3));
+		int c4 = convertCharToInt(str.charAt(4));
+		if(c3!=c4) return false;
 		return true;
 	}
-	
+
+
 	/**
 	 * 
 	 * @author Yuelin Liu
