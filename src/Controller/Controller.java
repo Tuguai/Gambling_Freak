@@ -585,6 +585,14 @@ public class Controller {
 			//int c5 = convertCharToInt(str.charAt(i+4));
 			if(c1!=c2 || c2!=c3 ) return false;
 		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(5));
+		int t3  = convertCharToInt(str.charAt(10));
+		int t4  = convertCharToInt(str.charAt(15));
+		if(t1+1!=t2)return false;
+		if(t2+1!=t3)return false;
+		if(t3+1!=t4)return false;
+		if(t4>=15) return false;
 		return true;
 	}
 
@@ -608,6 +616,12 @@ public class Controller {
 			//int c5 = convertCharToInt(str.charAt(i+4));
 			if(c1!=c2 || c2!=c3 ) return false;
 		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(5));
+		int t3  = convertCharToInt(str.charAt(10));
+		if(t1+1!=t2)return false;
+		if(t2+1!=t3)return false;
+		if(t3>=15) return false;
 		return true;
 	}
 
@@ -630,6 +644,14 @@ public class Controller {
 			//int c4 = convertCharToInt(str.charAt(i+3));
 			if(c1!=c2 || c2!=c3 ) return false;
 		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(4));
+		int t3  = convertCharToInt(str.charAt(8));
+		int t4  = convertCharToInt(str.charAt(12));
+		if(t1+1!=t2)return false;
+		if(t2+1!=t3)return false;
+		if(t3+1!=t4)return false;
+		if(t4>=15) return false;
 		return true;
 	}
 
@@ -652,6 +674,12 @@ public class Controller {
 			//int c4 = convertCharToInt(str.charAt(i+3));
 			if(c1!=c2 || c2!=c3 ) return false;
 		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(4));
+		int t3  = convertCharToInt(str.charAt(8));
+		if(t1+1!=t2)return false;
+		if(t2+1!=t3)return false;
+		if(t3>=15) return false;
 		return true;
 	}
 
@@ -674,6 +702,16 @@ public class Controller {
 			//int c4 = convertCharToInt(str.charAt(i+3));
 			if(c1!=c2 || c2!=c3 ) return false;
 		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(4));
+		int t3  = convertCharToInt(str.charAt(8));
+		int t4  = convertCharToInt(str.charAt(12));
+		int t5  = convertCharToInt(str.charAt(16));
+		if(t1+1!=t2)return false;
+		if(t2+1!=t3)return false;
+		if(t3+1!=t4)return false;
+		if(t4+1!=t5)return false;
+		if(t5>=15) return false;
 		return true;
 	}
 

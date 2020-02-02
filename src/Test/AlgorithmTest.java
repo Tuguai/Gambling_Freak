@@ -56,13 +56,14 @@ public class AlgorithmTest {
 	
 	public static void main(String args[]) {
 		
-		int[] human = {3,5,5,5,7,7};
+		int[] human = {3,5,5,5,7,7,9,8,9,9};
 		int[] computer = {2,4,6,6,15};
 
 	
-		
+		long t1 = System.currentTimeMillis();
 		int answer = checkWin(human,computer,4);
-		System.out.print("You should play: "+answer);
-		
+		long t2 = System.currentTimeMillis();
+		System.out.println("You should play: "+answer);
+		System.out.print("Time: "+(t2-t1));
 	}
 }
