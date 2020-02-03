@@ -173,118 +173,118 @@ public class Controller {
 			return true;
 		}
 		if(legalNameDoubleCards(str)) {
-			DoubleCard(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = DoubleCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameStraightCards(str)) {
-			StraightCard(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = StraightCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameThreeDOne(str)) {
-			ThreeDOne(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = ThreeDOne(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameThreeDTwo(str)) {
-			ThreeDTwo(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = ThreeDTwo(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameKingBomb(str)) {
-			KingBomb(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = KingBomb(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameFourBomb(str)) {
-			FourBomb(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = FourBomb(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameFourDTwo(str)) {
-			FourDTwoS(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = FourDTwoS(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameFourDTwoPair(str)) {
-			FourDTwoPair(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = FourDTwoPair(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameDoubleStraight3(str)) {
-			DoubleStraight3(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = DoubleStraight3(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameDoubleStraight4(str)) {
-			DoubleStraight4(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = DoubleStraight4(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameDoubleStraight5(str)) {
-			DoubleStraight5(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = DoubleStraight5(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameDoubleStraight6(str)) {
-			DoubleStraight6(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = DoubleStraight6(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameDoubleStraight7(str)) {
-			DoubleStraight7(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = DoubleStraight7(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameDoubleStraight8(str)) {
-			DoubleStraight8(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = DoubleStraight8(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameDoubleStraight9(str)) {
-			DoubleStraight9(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = DoubleStraight9(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNameDoubleStraight10(str)) {
-			DoubleStraight10(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = DoubleStraight10(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNamePlaneAAA1BBB1(str)) {
-			PlaneAAA1BBB1(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = PlaneAAA1BBB1(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNamePlaneAAA22BBB22(str)) {
-			PlaneAAA22BBB22(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = PlaneAAA22BBB22(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNamePlaneAAA1BBB1CCC1(str)) {
-			PlaneAAA1BBB1CCC1(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = PlaneAAA1BBB1CCC1(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNamePlaneAAA22BBB22CCC22(str)) {
-			PlaneAAA22BBB22CCC22(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = PlaneAAA22BBB22CCC22(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNamePlaneAAA1BBB1CCC1DDD1(str)) {
-			PlaneAAA1BBB1CCC1DDD1(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = PlaneAAA1BBB1CCC1DDD1(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNamePlaneAAA22BBB22CCC22DDD22(str)) {
-			PlaneAAA22BBB22CCC22DDD22(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = PlaneAAA22BBB22CCC22DDD22(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		if(legalNamePlaneAAA1BBB1CCC1DDD1EEE1(str)) {
-			PlaneAAA1BBB1CCC1DDD1EEE1(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = PlaneAAA1BBB1CCC1DDD1EEE1(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
 		System.out.println("illegal input!");
@@ -318,7 +318,7 @@ public class Controller {
 		}
 		
 		//Task2-2: write a private function to convert string. ie. "3"-3,"J"-11,"A"-14
-		legal=(legalNameSingleCards(str));// yuelin changed
+		//legal=(legalNameSingleCards(str));// yuelin changed
 		if(legal) legal = checkPlayHasCardsInHand(temp,str);
 		//Task2-3 make sure you have send your card in hand to the board
 		
@@ -348,7 +348,8 @@ public class Controller {
 		boolean legal=true;
 		List<Card> temp=player.getHand();
 		
-		legal=(legalNameDoubleCards(str)&&checkPlayHasCardsInHand(temp,str));
+		//legal=legalNameDoubleCards(str);
+		if(legal) legal = checkPlayHasCardsInHand(temp,str);
 		if(!legal) return "0";
 		
 		removeDoubleCardsRandomly(player,str.charAt(0));
@@ -376,7 +377,8 @@ public class Controller {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
 		
-		legal = (legalNameStraightCards(str) && checkPlayHasCardsInHand(temp,str));
+		//legal = legalNameStraightCards(str);
+		if(legal) legal = checkPlayHasCardsInHand(temp,str);
 		if(!legal) return "0";
 		
 		for(int i=0; i<str.length(); i++) {
@@ -408,7 +410,7 @@ public class Controller {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
 	
-		legal = legalNameThreeDOne(str);
+		//legal = legalNameThreeDOne(str);
 		if(legal)legal = checkPlayHasCardsInHand(temp,str);
 		if(!legal) return "0";
 		
@@ -439,7 +441,7 @@ public class Controller {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
 	
-		legal = legalNameThreeDTwo(str);
+		//legal = legalNameThreeDTwo(str);
 		if(legal)legal = checkPlayHasCardsInHand(temp,str);
 		if(!legal) return "0";
 		
@@ -461,7 +463,7 @@ public class Controller {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
 	
-		legal = legalNameFourBomb(str);
+		//legal = legalNameFourBomb(str);
 		if(legal)legal = checkPlayHasCardsInHand(temp,str);
 	
 		if(!legal) return "0";
@@ -485,7 +487,7 @@ public class Controller {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
 	
-		legal = legalNameFourDTwo(str);
+		//legal = legalNameFourDTwo(str);
 		if(legal)legal = checkPlayHasCardsInHand(temp,str);
 	
 		if(!legal) return "0";
@@ -509,7 +511,7 @@ public class Controller {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
 	
-		legal = legalNameFourDTwoPair(str);
+		//legal = legalNameFourDTwoPair(str);
 		if(legal)legal = checkPlayHasCardsInHand(temp,str);
 	
 		if(!legal) return "0";
@@ -536,7 +538,7 @@ public class Controller {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
 	
-		legal = legalNameKingBomb(str);
+		//legal = legalNameKingBomb(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);
 	
 		if(!legal) return "0";
@@ -560,7 +562,7 @@ public class Controller {
 	public static String PlaneAAA1BBB1CCC1DDD1EEE1(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNamePlaneAAA1BBB1CCC1DDD1EEE1(str);
+		//legal = legalNamePlaneAAA1BBB1CCC1DDD1EEE1(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -571,7 +573,7 @@ public class Controller {
 	public static String PlaneAAA1BBB1CCC1DDD1(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNamePlaneAAA1BBB1CCC1DDD1(str);
+		//legal = legalNamePlaneAAA1BBB1CCC1DDD1(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -582,7 +584,7 @@ public class Controller {
 	public static String PlaneAAA1BBB1CCC1(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNamePlaneAAA1BBB1CCC1(str);
+		//legal = legalNamePlaneAAA1BBB1CCC1(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -593,7 +595,7 @@ public class Controller {
 	public static String PlaneAAA1BBB1(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNamePlaneAAA1BBB1(str);
+		//legal = legalNamePlaneAAA1BBB1(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -604,7 +606,7 @@ public class Controller {
 	public static String PlaneAAA22BBB22CCC22DDD22(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNamePlaneAAA22BBB22CCC22DDD22(str);
+		//legal = legalNamePlaneAAA22BBB22CCC22DDD22(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -615,7 +617,7 @@ public class Controller {
 	public static String PlaneAAA22BBB22CCC22(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNamePlaneAAA22BBB22CCC22(str);
+		//legal = legalNamePlaneAAA22BBB22CCC22(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -626,7 +628,7 @@ public class Controller {
 	public static String PlaneAAA22BBB22(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNamePlaneAAA22BBB22(str);
+		//legal = legalNamePlaneAAA22BBB22(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -647,7 +649,7 @@ public class Controller {
 	public static String DoubleStraight3(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNameDoubleStraight3(str);
+		//legal = legalNameDoubleStraight3(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -658,7 +660,7 @@ public class Controller {
 	public static String DoubleStraight4(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNameDoubleStraight4(str);
+		//legal = legalNameDoubleStraight4(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -669,7 +671,7 @@ public class Controller {
 	public static String DoubleStraight5(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNameDoubleStraight5(str);
+		//legal = legalNameDoubleStraight5(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -680,7 +682,7 @@ public class Controller {
 	public static String DoubleStraight6(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNameDoubleStraight6(str);
+		//legal = legalNameDoubleStraight6(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -691,7 +693,7 @@ public class Controller {
 	public static String DoubleStraight7(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNameDoubleStraight7(str);
+		//legal = legalNameDoubleStraight7(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -702,7 +704,7 @@ public class Controller {
 	public static String DoubleStraight8(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNameDoubleStraight8(str);
+		//legal = legalNameDoubleStraight8(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -713,7 +715,7 @@ public class Controller {
 	public static String DoubleStraight9(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNameDoubleStraight9(str);
+		//legal = legalNameDoubleStraight9(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -724,7 +726,7 @@ public class Controller {
 	public static String DoubleStraight10(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
-		legal = legalNameDoubleStraight10(str);
+		//legal = legalNameDoubleStraight10(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
