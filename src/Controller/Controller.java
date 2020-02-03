@@ -165,6 +165,131 @@ public class Controller {
 	}
 	
 	
+	public static boolean playCards(Player player,String str) {
+		if(legalNameSingleCards(str)) {
+			singleCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameDoubleCards(str)) {
+			DoubleCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameStraightCards(str)) {
+			StraightCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameThreeDOne(str)) {
+			ThreeDOne(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameThreeDTwo(str)) {
+			ThreeDTwo(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameKingBomb(str)) {
+			KingBomb(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameFourBomb(str)) {
+			FourBomb(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameFourDTwo(str)) {
+			FourDTwoS(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameFourDTwoPair(str)) {
+			FourDTwoPair(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameDoubleStraight3(str)) {
+			DoubleStraight3(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameDoubleStraight4(str)) {
+			DoubleStraight4(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameDoubleStraight5(str)) {
+			DoubleStraight5(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameDoubleStraight6(str)) {
+			DoubleStraight6(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameDoubleStraight7(str)) {
+			DoubleStraight7(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameDoubleStraight8(str)) {
+			DoubleStraight8(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameDoubleStraight9(str)) {
+			DoubleStraight9(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNameDoubleStraight10(str)) {
+			DoubleStraight10(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNamePlaneAAA1BBB1(str)) {
+			PlaneAAA1BBB1(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNamePlaneAAA22BBB22(str)) {
+			PlaneAAA22BBB22(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNamePlaneAAA1BBB1CCC1(str)) {
+			PlaneAAA1BBB1CCC1(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNamePlaneAAA22BBB22CCC22(str)) {
+			PlaneAAA22BBB22CCC22(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNamePlaneAAA1BBB1CCC1DDD1(str)) {
+			PlaneAAA1BBB1CCC1DDD1(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNamePlaneAAA22BBB22CCC22DDD22(str)) {
+			PlaneAAA22BBB22CCC22DDD22(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		if(legalNamePlaneAAA1BBB1CCC1DDD1EEE1(str)) {
+			PlaneAAA1BBB1CCC1DDD1EEE1(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			return true;
+		}
+		System.out.println("illegal input!");
+		return false;		
+	}
+	
 	public static String singleCard(Player player, String str) {
 		boolean legal = false;
 		List<Card> temp = player.getHand();
@@ -429,6 +554,7 @@ public class Controller {
 	 * @exception 
 	 * 
 	 */
+	
 	public static String PlaneAAA1BBB1CCC1DDD1EEE1(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
@@ -462,6 +588,17 @@ public class Controller {
 		}
 		return str;
 	}
+	public static String PlaneAAA1BBB1(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNamePlaneAAA1BBB1(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
 	public static String PlaneAAA22BBB22CCC22DDD22(Player player, String str) {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
@@ -477,6 +614,17 @@ public class Controller {
 		boolean legal = true;
 		List<Card> temp = player.getHand();
 		legal = legalNamePlaneAAA22BBB22CCC22(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String PlaneAAA22BBB22(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNamePlaneAAA22BBB22(str);
 		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
 		if(!legal) return "0";
 		for(int i=0; i<str.length(); i++) {
@@ -791,6 +939,32 @@ public class Controller {
 		return true;
 	}
 
+	
+	private static boolean legalNamePlaneAAA22BBB22(String str) {
+		if(str.length() != 10) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 5; i=i+5) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			//int c5 = convertCharToInt(str.charAt(i+4));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(5));
+		if(t1+1!=t2)return false;
+		if(t2>=15) return false;
+		return true;
+	}
 
 	private static boolean legalNamePlaneAAA1BBB1CCC1DDD1(String str) {
 		if(str.length() != 16) {
@@ -846,6 +1020,31 @@ public class Controller {
 		if(t1+1!=t2)return false;
 		if(t2+1!=t3)return false;
 		if(t3>=15) return false;
+		return true;
+	}
+	
+	private static boolean legalNamePlaneAAA1BBB1(String str) {
+		if(str.length() != 8) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 4; i=i+4) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(4));
+		if(t1+1!=t2)return false;
+		if(t2>=15) return false;
 		return true;
 	}
 
