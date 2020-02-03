@@ -778,7 +778,7 @@ public class Controller {
 			System.out.println("Illegal input size, try again");
 			return false;
 		}
-		for(int i = 0; i <= str.length(); i++) {
+		for(int i = 0; i < str.length(); i++) {
 			int value = convertCharToInt(str.charAt(i));
 			if(value == 0) {
 				return false;
