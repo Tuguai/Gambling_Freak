@@ -775,7 +775,7 @@ public class Controller {
 
 	private static boolean legalNameDoubleStraight10(String str, int numberOfPairs) {
 		if(str.length() != (numberOfPairs*2)) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		for(int i = 0; i < str.length(); i++) {
@@ -818,7 +818,7 @@ public class Controller {
 	private static boolean legalNameThreeDOne(String str) {
 		// first check the length
 		if(str.length() != 4) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		// check input str doesn't include any illegal card
@@ -855,7 +855,7 @@ public class Controller {
 	private static boolean legalNameThreeDTwo(String str) {
 		// TODO Auto-generated method stub
 		if(str.length() != 5) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		// check input str doesn't include any illegal card
@@ -882,7 +882,7 @@ public class Controller {
 
 	private static boolean legalNamePlaneAAA22BBB22CCC22DDD22(String str) {
 		if(str.length() != 20) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		for(int i = 0; i < str.length(); i++) {
@@ -913,7 +913,7 @@ public class Controller {
 
 	private static boolean legalNamePlaneAAA22BBB22CCC22(String str) {
 		if(str.length() != 15) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		for(int i = 0; i < str.length(); i++) {
@@ -942,7 +942,7 @@ public class Controller {
 	
 	private static boolean legalNamePlaneAAA22BBB22(String str) {
 		if(str.length() != 10) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		for(int i = 0; i < str.length(); i++) {
@@ -968,7 +968,7 @@ public class Controller {
 
 	private static boolean legalNamePlaneAAA1BBB1CCC1DDD1(String str) {
 		if(str.length() != 16) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		for(int i = 0; i < str.length(); i++) {
@@ -998,7 +998,7 @@ public class Controller {
 
 	private static boolean legalNamePlaneAAA1BBB1CCC1(String str) {
 		if(str.length() != 12) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		for(int i = 0; i < str.length(); i++) {
@@ -1025,7 +1025,7 @@ public class Controller {
 	
 	private static boolean legalNamePlaneAAA1BBB1(String str) {
 		if(str.length() != 8) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		for(int i = 0; i < str.length(); i++) {
@@ -1051,7 +1051,7 @@ public class Controller {
 
 	private static boolean legalNamePlaneAAA1BBB1CCC1DDD1EEE1(String str) {
 		if(str.length() != 20) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		for(int i = 0; i < str.length(); i++) {
@@ -1092,7 +1092,7 @@ public class Controller {
 	private static boolean legalNameFourBomb(String str) {
 		// TODO Auto-generated method stub
 		if(str.length() !=4) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		// check input str doesn't include any illegal card
@@ -1116,7 +1116,7 @@ public class Controller {
 	private static boolean legalNameSingleCards(String str) {
 		// TODO Auto-generated method stub
 		if(str.length() !=1) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		int c0 = convertCharToInt(str.charAt(0));
@@ -1165,7 +1165,7 @@ public class Controller {
 	private static boolean legalNameFourDTwoPair(String str) {
 		// TODO Auto-generated method stub
 		if(str.length() != 8) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		// check input str doesn't include any illegal card
@@ -1206,7 +1206,7 @@ public class Controller {
 	private static boolean legalNameFourDTwo(String str) {
 		// first check the length
 		if(str.length() != 6) {
-			System.out.println("Illegal input size, try again");
+			//System.out.println("Illegal input size, try again");
 			return false;
 		}
 		// check input str doesn't include any illegal card
@@ -1532,6 +1532,24 @@ public class Controller {
 		
 	}
 	
+	/**
+	 * 
+	 * @author Yuelin Liu
+	 * @explain  assign the cards to two players
+	 * @exception 
+	 * 
+	 */
+	public static void assignCardTest3() {
+		
+		FL fl = FightTheLandlordApplication.getFL();
+		Player p1 = FightTheLandlordApplication.getFL().getCurrentGame().getDealer(0);
+		Player p2 = FightTheLandlordApplication.getFL().getCurrentGame().getDealer(1);
+		
+		for(int i=1; i<=54; i++) {
+			p1.addHand(Card.getWithId(i) );
+		}
+		
+	}
 
 	/**
 	 * 
