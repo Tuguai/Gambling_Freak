@@ -486,12 +486,178 @@ public class Controller {
 	}
 	
 	
+	/**
+	 * Feature:DoubleStraight
+	 * @author Yuelin Liu
+	 * @param str: 
+	 * @return the corresponding cards in String if successful, otherwise "0"
+	 * @exception 
+	 * 
+	 */
+	public static String DoubleStraight3(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNameDoubleStraight3(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String DoubleStraight4(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNameDoubleStraight4(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String DoubleStraight5(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNameDoubleStraight5(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String DoubleStraight6(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNameDoubleStraight6(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String DoubleStraight7(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNameDoubleStraight7(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String DoubleStraight8(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNameDoubleStraight8(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String DoubleStraight9(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNameDoubleStraight9(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String DoubleStraight10(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		legal = legalNameDoubleStraight10(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
 	
 	
-	
-	
-	
-	
+	/**
+	 * Feature:DoubleStraight
+	 * @author Yuelin Liu
+	 * @param str: 
+	 * @return the corresponding cards in String if successful, otherwise "0"
+	 * @exception 
+	 * 
+	 */
+	private static boolean legalNameDoubleStraight3(String str) {
+		// TODO Auto-generated method stub
+		return legalNameDoubleStraight10(str, 3);
+	}
+	private static boolean legalNameDoubleStraight4(String str) {
+		// TODO Auto-generated method stub
+		return legalNameDoubleStraight10(str, 4);
+	}
+	private static boolean legalNameDoubleStraight5(String str) {
+		// TODO Auto-generated method stub
+		return legalNameDoubleStraight10(str, 5);
+	}
+	private static boolean legalNameDoubleStraight6(String str) {
+		// TODO Auto-generated method stub
+		return legalNameDoubleStraight10(str, 6);
+	}
+	private static boolean legalNameDoubleStraight7(String str) {
+		// TODO Auto-generated method stub
+		return legalNameDoubleStraight10(str, 7);
+	}
+	private static boolean legalNameDoubleStraight8(String str) {
+		// TODO Auto-generated method stub
+		return legalNameDoubleStraight10(str, 8);
+	}
+	private static boolean legalNameDoubleStraight9(String str) {
+		// TODO Auto-generated method stub
+		return legalNameDoubleStraight10(str, 9);
+	}
+	private static boolean legalNameDoubleStraight10(String str) {
+		// TODO Auto-generated method stub
+		return legalNameDoubleStraight10(str, 10);
+	}
+
+	private static boolean legalNameDoubleStraight10(String str, int numberOfPairs) {
+		if(str.length() != (numberOfPairs*2)) {
+			System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i <= str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= numberOfPairs*2-2; i=i+2) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			if(c1 != c2) {
+				return false;
+			}
+		}
+		int c0 = convertCharToInt(str.charAt(0));
+		int c99 = convertCharToInt(str.charAt(str.length()-1));
+		if(c0<3||c99>14) return false;
+		
+		for(int i = 0; i <= numberOfPairs*2-4; i=i+2) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+2));
+			if(c1+1 != c2) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+
 	/**
 	 * This method only see following example as legal input:
 	 * "3331", "TTT2","JJJQ" etc.
