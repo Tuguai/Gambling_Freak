@@ -167,8 +167,9 @@ public class Controller {
 	
 	public static boolean playCards(Player player,String str) {
 		if(legalNameSingleCards(str)) {
-			singleCard(player, str);
-			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str);
+			String str1 = singleCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			if(!str1.equals("0"))
 			return true;
 		}
 		if(legalNameDoubleCards(str)) {
@@ -318,6 +319,7 @@ public class Controller {
 		
 		//Task2-2: write a private function to convert string. ie. "3"-3,"J"-11,"A"-14
 		legal=(legalNameSingleCards(str));// yuelin changed
+		if(legal) legal = checkPlayHasCardsInHand(temp,str);
 		//Task2-3 make sure you have send your card in hand to the board
 		
 		if (legal){

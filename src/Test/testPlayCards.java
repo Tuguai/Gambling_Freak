@@ -16,6 +16,11 @@ public static void main(String args[]) {
 		FL currentFL = FightTheLandlordApplication.getFL();
 		Player p1 = FightTheLandlordApplication.getFL().getCurrentGame().getDealer(0);
 		Controller.playCards(p1, "6666J9");
+		Controller.playCards(p1, "7");
+		Controller.playCards(p1, "7");
+		Controller.playCards(p1, "7");
+		Controller.playCards(p1, "7");
+		Controller.playCards(p1, "7");
 		//Task3-2:add here
 		System.out.println(currentFL.getBoard().getCurrentCardTpye());
 		System.out.println(pass?"Congratulations! You passed!" : "No! there is still some bug!");
