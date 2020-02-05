@@ -12,17 +12,14 @@ public class AlgorithmTest2 {
 		}
 		boolean aHasBigger = false;
 		//Check standardType is illegal input
-		checkHasBigger(a,standardType);
+		Controller2.checkHasBigger(a,standardType);
 		
 		
 		
 		return null;
 		
 	}
-	private static void checkHasBigger(ArrayList a, String standardType) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	public static void main(String args[]) {
 		FL currentFL = FightTheLandlordApplication.getFL();
 		Player p1 = FightTheLandlordApplication.getFL().getCurrentGame().getDealer(0);

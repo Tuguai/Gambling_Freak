@@ -440,16 +440,16 @@ public class Controller {
 		
 		if(legalNamePlaneAAABBB(str)) return "PlaneAAABBB";
 		if(legalNamePlaneAAABBBCCC(str)) return "PlaneAAABBBCCC";
-		if(legalNamePlaneAAABBBCCCDDD(str)) return "ePlaneAAABBBCCCDDD";
+		if(legalNamePlaneAAABBBCCCDDD(str)) return "PlaneAAABBBCCCDDD";
 		if(legalNamePlaneAAABBBCCCDDDEEE(str)) return "PlaneAAABBBCCCDDDEEE";
 		if(legalNamePlaneAAABBBCCCDDDEEEFFF(str)) return "PlaneAAABBBCCCDDDEEEFFF";
 		if(legalNamePlaneAAA1BBB1(str)) return "PlaneAAA1BBB1";
 		if(legalNamePlaneAAA1BBB1CCC1(str)) return "PlaneAAA1BBB1CCC1";
 		if(legalNamePlaneAAA1BBB1CCC1DDD1(str)) return "PlaneAAA1BBB1CCC1DDD1";
 		if(legalNamePlaneAAA1BBB1CCC1DDD1EEE1(str)) return "PlaneAAA1BBB1CCC1DDD1EEE1";
-		if(legalNamePlaneAAA22BBB22(str)) return "AAA22BBB22";
-		if(legalNamePlaneAAA22BBB22CCC22(str)) return "AAA22BBB22CCC22";
-		if(legalNamePlaneAAA22BBB22CCC22DDD22(str)) return "AAA22BBB22CCC22DDD22";
+		if(legalNamePlaneAAA22BBB22(str)) return "PlaneAAA22BBB22";
+		if(legalNamePlaneAAA22BBB22CCC22(str)) return "PlaneAAA22BBB22CCC22";
+		if(legalNamePlaneAAA22BBB22CCC22DDD22(str)) return "PlaneAAA22BBB22CCC22DDD22";
 		return "0";
 	}
 	
