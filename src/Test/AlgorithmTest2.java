@@ -6,13 +6,15 @@ import Application.FightTheLandlordApplication;
 import Model.*;
 import Controller.*;
 public class AlgorithmTest2 {
+	
 	private static String checkWin(ArrayList a, ArrayList b, String standardType) {
 		if(a.size()==0) {
 			throw new IllegalArgumentException("IllegalArgumentException");
 		}
 		boolean aHasBigger = false;
 		//Check standardType is illegal input
-		Controller2.checkHasBigger(a,standardType);
+		Controller2.checkHasBigger(a,Controller.tellIllegalName(standardType));
+		
 		
 		
 		
