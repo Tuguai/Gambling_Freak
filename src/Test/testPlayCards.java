@@ -16,7 +16,7 @@ public static void main(String args[]) {
 		FL currentFL = FightTheLandlordApplication.getFL();
 		Player p1 = FightTheLandlordApplication.getFL().getCurrentGame().getDealer(0);
 
-		boolean s2 = Controller.playCards(p1, "");
+		boolean s2 = Controller.playCards(p1, "jjjqqqkkkaaa222");
 		//Controller.playCards(p1, "7");
 		//Task3-2:add here
 		if(!s2) pass = false;

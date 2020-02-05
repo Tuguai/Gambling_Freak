@@ -1,5 +1,6 @@
 package Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Model.Board;
@@ -177,7 +178,47 @@ public class Controller {
 			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
-		if(legalNameStraightCards(str)) {
+		if(legalNameThreeCards(str)) {
+			String str1 = ThreeCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNameStraightCards5(str)) {
+			String str1 = StraightCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNameStraightCards6(str)) {
+			String str1 = StraightCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNameStraightCards7(str)) {
+			String str1 = StraightCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNameStraightCards8(str)) {
+			String str1 = StraightCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNameStraightCards9(str)) {
+			String str1 = StraightCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNameStraightCards10(str)) {
+			String str1 = StraightCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNameStraightCards11(str)) {
+			String str1 = StraightCard(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNameStraightCards12(str)) {
 			String str1 = StraightCard(player, str);
 			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
@@ -287,8 +328,129 @@ public class Controller {
 			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
 			return true;
 		}
+		if(legalNamePlaneAAABBB(str)) {
+			String str1 = PlaneAAABBB(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNamePlaneAAABBBCCC(str)) {
+			String str1 = PlaneAAABBBCCC(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNamePlaneAAABBBCCCDDD(str)) {
+			String str1 = PlaneAAABBBCCCDDD(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNamePlaneAAABBBCCCDDDEEE(str)) {
+			String str1 = PlaneAAABBBCCCDDDEEE(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
+		if(legalNamePlaneAAABBBCCCDDDEEEFFF(str)) {
+			String str1 = PlaneAAABBBCCCDDDEEEFFF(player, str);
+			FightTheLandlordApplication.getFL().getBoard().setCurrentCardTpye(str1);
+			return true;
+		}
 		System.out.println("illegal input!");
 		return false;		
+	}
+	
+	public static boolean checkIllegalName(String cardsType) {
+		String str = cardsType;
+		if(legalNameSingleCards(str)) return true;
+		if(legalNameDoubleCards(str)) return true;
+		if(legalNameThreeCards(str)) return true;
+		
+		if(legalNameThreeDOne(str)) return true;
+		if(legalNameThreeDTwo(str)) return true;
+		
+		if(legalNameStraightCards5(str)) return true;
+		if(legalNameStraightCards6(str)) return true;
+		if(legalNameStraightCards7(str)) return true;
+		if(legalNameStraightCards8(str)) return true;
+		if(legalNameStraightCards9(str)) return true;
+		if(legalNameStraightCards10(str)) return true;
+		if(legalNameStraightCards11(str)) return true;
+		if(legalNameStraightCards12(str)) return true;
+		
+		if(legalNameFourBomb(str)) return true;
+		if(legalNameFourDTwo(str)) return true;
+		if(legalNameFourDTwoPair(str)) return true;
+		
+		if(legalNameKingBomb(str)) return true;
+		
+		if(legalNameDoubleStraight3(str)) return true;
+		if(legalNameDoubleStraight4(str)) return true;
+		if(legalNameDoubleStraight5(str)) return true;
+		if(legalNameDoubleStraight6(str)) return true;
+		if(legalNameDoubleStraight7(str)) return true;
+		if(legalNameDoubleStraight8(str)) return true;
+		if(legalNameDoubleStraight9(str)) return true;
+		if(legalNameDoubleStraight10(str)) return true;
+		
+		if(legalNamePlaneAAABBB(str)) return true;
+		if(legalNamePlaneAAABBBCCC(str)) return true;
+		if(legalNamePlaneAAABBBCCCDDD(str)) return true;
+		if(legalNamePlaneAAABBBCCCDDDEEE(str)) return true;
+		if(legalNamePlaneAAABBBCCCDDDEEEFFF(str)) return true;
+		if(legalNamePlaneAAA1BBB1(str)) return true;
+		if(legalNamePlaneAAA1BBB1CCC1(str)) return true;
+		if(legalNamePlaneAAA1BBB1CCC1DDD1(str)) return true;
+		if(legalNamePlaneAAA1BBB1CCC1DDD1EEE1(str)) return true;
+		if(legalNamePlaneAAA22BBB22(str)) return true;
+		if(legalNamePlaneAAA22BBB22CCC22(str)) return true;
+		if(legalNamePlaneAAA22BBB22CCC22DDD22(str)) return true;
+		return false;
+	}
+	
+	public static String tellIllegalName(String cardsType) {
+		String str = cardsType;
+		if(legalNameSingleCards(str)) return "single";
+		if(legalNameDoubleCards(str)) return "double";
+		if(legalNameThreeCards(str)) return "triple";
+		
+		if(legalNameThreeDOne(str)) return "threeDOne";
+		if(legalNameThreeDTwo(str)) return "threeDTwo";
+		
+		if(legalNameStraightCards5(str)) return "StraightCards5";
+		if(legalNameStraightCards6(str)) return "StraightCards6";
+		if(legalNameStraightCards7(str)) return "StraightCards7";
+		if(legalNameStraightCards8(str)) return "StraightCards8";
+		if(legalNameStraightCards9(str)) return "StraightCards9";
+		if(legalNameStraightCards10(str)) return "StraightCards10";
+		if(legalNameStraightCards11(str)) return "StraightCards11";
+		if(legalNameStraightCards12(str)) return "StraightCards12";
+		
+		if(legalNameFourBomb(str)) return "FourBomb";
+		if(legalNameFourDTwo(str)) return "FourDTwo";
+		if(legalNameFourDTwoPair(str)) return "FourDTwoPair";
+		
+		if(legalNameKingBomb(str)) return "KingBomb";
+		
+		if(legalNameDoubleStraight3(str)) return "DoubleStraight3";
+		if(legalNameDoubleStraight4(str)) return "DoubleStraight4";
+		if(legalNameDoubleStraight5(str)) return "DoubleStraight5";
+		if(legalNameDoubleStraight6(str)) return "DoubleStraight6";
+		if(legalNameDoubleStraight7(str)) return "DoubleStraight7";
+		if(legalNameDoubleStraight8(str)) return "DoubleStraight8";
+		if(legalNameDoubleStraight9(str)) return "DoubleStraight9";
+		if(legalNameDoubleStraight10(str)) return "DoubleStraight10";
+		
+		if(legalNamePlaneAAABBB(str)) return "PlaneAAABBB";
+		if(legalNamePlaneAAABBBCCC(str)) return "PlaneAAABBBCCC";
+		if(legalNamePlaneAAABBBCCCDDD(str)) return "ePlaneAAABBBCCCDDD";
+		if(legalNamePlaneAAABBBCCCDDDEEE(str)) return "PlaneAAABBBCCCDDDEEE";
+		if(legalNamePlaneAAABBBCCCDDDEEEFFF(str)) return "PlaneAAABBBCCCDDDEEEFFF";
+		if(legalNamePlaneAAA1BBB1(str)) return "PlaneAAA1BBB1";
+		if(legalNamePlaneAAA1BBB1CCC1(str)) return "PlaneAAA1BBB1CCC1";
+		if(legalNamePlaneAAA1BBB1CCC1DDD1(str)) return "PlaneAAA1BBB1CCC1DDD1";
+		if(legalNamePlaneAAA1BBB1CCC1DDD1EEE1(str)) return "PlaneAAA1BBB1CCC1DDD1EEE1";
+		if(legalNamePlaneAAA22BBB22(str)) return "AAA22BBB22";
+		if(legalNamePlaneAAA22BBB22CCC22(str)) return "AAA22BBB22CCC22";
+		if(legalNamePlaneAAA22BBB22CCC22DDD22(str)) return "AAA22BBB22CCC22DDD22";
+		return "0";
 	}
 	
 	public static String singleCard(Player player, String str) {
@@ -349,6 +511,22 @@ public class Controller {
 		List<Card> temp=player.getHand();
 		
 		//legal=legalNameDoubleCards(str);
+		if(legal) legal = checkPlayHasCardsInHand(temp,str);
+		if(!legal) return "0";
+		
+		removeDoubleCardsRandomly(player,str.charAt(0));
+		
+		
+		return str;	
+	}
+	
+	public static String ThreeCard(Player player, String str) {
+		
+		//Task3-1: add here
+		boolean legal=true;
+		List<Card> temp=player.getHand();
+		
+		legal=legalNameThreeCards(str);
 		if(legal) legal = checkPlayHasCardsInHand(temp,str);
 		if(!legal) return "0";
 		
@@ -636,6 +814,61 @@ public class Controller {
 		}
 		return str;
 	}
+	public static String PlaneAAABBB(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		//legal = legalNamePlaneAAABBB(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String PlaneAAABBBCCC(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		//legal = legalNamePlaneAAABBBCCC(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String PlaneAAABBBCCCDDD(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		//legal = legalNamePlaneAAABBBCCCDDD(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String PlaneAAABBBCCCDDDEEE(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		//legal = legalNamePlaneAAABBBCCCDDDEEE(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
+	public static String PlaneAAABBBCCCDDDEEEFFF(Player player, String str) {
+		boolean legal = true;
+		List<Card> temp = player.getHand();
+		//legal = legalNamePlaneAAABBBCCCDDDEEEFFF(str);
+		if(legal)	legal = checkPlayHasCardsInHand(temp,str);		
+		if(!legal) return "0";
+		for(int i=0; i<str.length(); i++) {
+			removeSingleCardRandomly(player, str.charAt(i));
+		}
+		return str;
+	}
 	
 	
 	/**
@@ -736,6 +969,157 @@ public class Controller {
 	}
 	
 	
+	private static boolean legalNamePlaneAAABBB(String str) {
+		if(str.length() != 6) {
+			//System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 3; i=i+3) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(3));
+
+		if(t1+1!=t2)return false;
+;
+		return true;
+	}
+
+
+	private static boolean legalNamePlaneAAABBBCCC(String str) {
+		if(str.length() != 9) {
+			//System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 6; i=i+3) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(3));
+		int t3  = convertCharToInt(str.charAt(6));
+		if(t1+1!=t2)return false;
+		if(t2+1!=t3)return false;
+		if(t3>=15) return false;
+		return true;
+	}
+
+
+	private static boolean legalNamePlaneAAABBBCCCDDD(String str) {
+		if(str.length() != 12) {
+			//System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 9; i=i+3) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(3));
+		int t3  = convertCharToInt(str.charAt(6));
+		int t4  = convertCharToInt(str.charAt(9));
+		if(t1+1!=t2)return false;
+		if(t2+1!=t3)return false;
+		if(t3+1!=t4)return false;
+		if(t4>=15) return false;
+		return true;
+	}
+
+
+	private static boolean legalNamePlaneAAABBBCCCDDDEEE(String str) {
+		if(str.length() != 15) {
+			//System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 12; i=i+3) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(3));
+		int t3  = convertCharToInt(str.charAt(6));
+		int t4  = convertCharToInt(str.charAt(9));
+		int t5  = convertCharToInt(str.charAt(12));
+		if(t1+1!=t2)return false;
+		if(t2+1!=t3)return false;
+		if(t3+1!=t4)return false;
+		if(t4+1!=t5)return false;
+		if(t5>=15) return false;
+		return true;
+	}
+
+
+	private static boolean legalNamePlaneAAABBBCCCDDDEEEFFF(String str) {
+		if(str.length() != 18) {
+			//System.out.println("Illegal input size, try again");
+			return false;
+		}
+		for(int i = 0; i < str.length(); i++) {
+			int value = convertCharToInt(str.charAt(i));
+			if(value == 0) {
+				return false;
+			}
+		}
+		for(int i = 0; i <= 15; i=i+3) {
+			int c1 = convertCharToInt(str.charAt(i));
+			int c2 = convertCharToInt(str.charAt(i+1));
+			int c3 = convertCharToInt(str.charAt(i+2));
+			//int c4 = convertCharToInt(str.charAt(i+3));
+			if(c1!=c2 || c2!=c3 ) return false;
+		}
+		int t1  = convertCharToInt(str.charAt(0));
+		int t2  = convertCharToInt(str.charAt(3));
+		int t3  = convertCharToInt(str.charAt(6));
+		int t4  = convertCharToInt(str.charAt(9));
+		int t5  = convertCharToInt(str.charAt(12));
+		int t6  = convertCharToInt(str.charAt(15));
+		if(t1+1!=t2)return false;
+		if(t2+1!=t3)return false;
+		if(t3+1!=t4)return false;
+		if(t4+1!=t5)return false;
+		if(t5+1!=t6)return false;
+		if(t6>=15) return false;
+		return true;
+	}
+
+
 	/**
 	 * Feature:DoubleStraight
 	 * @author Yuelin Liu
@@ -1139,7 +1523,6 @@ public class Controller {
 	private static boolean legalNameDoubleCards(String str) {
 		boolean legal = true;
 		if(str.length()==2) {
-			int asciiS = (int)str.charAt(0);
 			int value = convertCharToInt(str.charAt(0));
 			if( (value<3)  || (value>15) ) {
 				legal = false;
@@ -1149,6 +1532,27 @@ public class Controller {
 			int value2 = convertCharToInt(str.charAt(1));
 			if(value1 !=value2 ) {
 				legal = false;//check whether it is in sequence(increasing order)
+			}
+		}
+		else {
+			legal = false;
+		}
+		return legal;
+	}
+
+
+	private static boolean legalNameThreeCards(String str) {
+		boolean legal = true;
+		if(str.length()==3) {
+			int value = convertCharToInt(str.charAt(0));
+			if( (value<3)  || (value>15) ) {
+				legal = false;
+			}
+			int value1 = convertCharToInt(str.charAt(0));
+			int value2 = convertCharToInt(str.charAt(1));
+			int value3 = convertCharToInt(str.charAt(2));
+			if(value1 !=value2 || value2!=value3) {
+				legal = false;
 			}
 		}
 		else {
@@ -1240,10 +1644,9 @@ public class Controller {
 	 * @exception 
 	 * 
 	 */
-	private static boolean legalNameStraightCards(String str) {
+	private static boolean legalNameStraightCards5(String str) {
 		boolean legal = true;
 		if(str.length()==5) {
-			int asciiS = (int)str.charAt(0);
 			int value = convertCharToInt(str.charAt(0));
 			if( (value<3)  || (value>10) ) {
 				legal = false;
@@ -1255,9 +1658,14 @@ public class Controller {
 					legal = false;//check whether it is in sequence(increasing order)
 				}
 			}
+		}else {
+			legal=false;
 		}
-		else if(str.length()==6) {
-			int asciiS = (int)str.charAt(0);
+		return legal;
+	}
+	private static boolean legalNameStraightCards6(String str) {
+		boolean legal = true;
+		if(str.length()==6) {
 			int value = convertCharToInt(str.charAt(0));
 			if( (value<3)  || (value>9) ) {
 				legal = false;
@@ -1269,9 +1677,14 @@ public class Controller {
 					legal = false;//check whether it is in sequence(increasing order)
 				}
 			}
+		}else {
+			legal=false;
 		}
-		else if(str.length()==7) {
-			int asciiS = (int)str.charAt(0);
+		return legal;
+	}
+	private static boolean legalNameStraightCards7(String str) {
+		boolean legal = true;
+		if(str.length()==7) {
 			int value = convertCharToInt(str.charAt(0));
 			if( (value<3)  || (value>8) ) {
 				legal = false;
@@ -1283,9 +1696,14 @@ public class Controller {
 					legal = false;//check whether it is in sequence(increasing order)
 				}
 			}
+		}else {
+			legal=false;
 		}
-		else if(str.length()==8) {
-			int asciiS = (int)str.charAt(0);
+		return legal;
+	}
+	private static boolean legalNameStraightCards8(String str) {
+		boolean legal = true;
+		if(str.length()==8) {
 			int value = convertCharToInt(str.charAt(0));
 			if( (value<3)  || (value>7) ) {
 				legal = false;
@@ -1297,9 +1715,14 @@ public class Controller {
 					legal = false;//check whether it is in sequence(increasing order)
 				}
 			}
+		}else {
+			legal=false;
 		}
-		else if(str.length()==9) {
-			int asciiS = (int)str.charAt(0);
+		return legal;
+	}
+	private static boolean legalNameStraightCards9(String str) {
+		boolean legal = true;
+		if(str.length()==9) {
 			int value = convertCharToInt(str.charAt(0));
 			if( (value<3)  || (value>6) ) {
 				legal = false;
@@ -1311,9 +1734,14 @@ public class Controller {
 					legal = false;//check whether it is in sequence(increasing order)
 				}
 			}
+		}else {
+			legal=false;
 		}
-		else if(str.length()==10) {
-			int asciiS = (int)str.charAt(0);
+		return legal;
+	}
+	private static boolean legalNameStraightCards10(String str) {
+		boolean legal = true;
+		if(str.length()==10) {
 			int value = convertCharToInt(str.charAt(0));
 			if( (value<3)  || (value>5) ) {
 				legal = false;
@@ -1325,9 +1753,14 @@ public class Controller {
 					legal = false;//check whether it is in sequence(increasing order)
 				}
 			}
+		}else {
+			legal=false;
 		}
-		else if(str.length()==11) {
-			int asciiS = (int)str.charAt(0);
+		return legal;
+	}
+	private static boolean legalNameStraightCards11(String str) {
+		boolean legal = true;
+		if(str.length()==11) {
 			int value = convertCharToInt(str.charAt(0));
 			if( (value<3)  || (value>4) ) {
 				legal = false;
@@ -1339,9 +1772,14 @@ public class Controller {
 					legal = false;//check whether it is in sequence(increasing order)
 				}
 			}
+		}else {
+			legal=false;
 		}
-		else if(str.length()==12) {
-			int asciiS = (int)str.charAt(0);
+		return legal;
+	}
+	private static boolean legalNameStraightCards12(String str) {
+		boolean legal = true;
+		if(str.length()==12) {
 			int value = convertCharToInt(str.charAt(0));
 			if( (value<3)  || (value>3) ) {
 				legal = false;
@@ -1353,16 +1791,133 @@ public class Controller {
 					legal = false;//check whether it is in sequence(increasing order)
 				}
 			}
-		}
-		else {
-			legal = false;
+		}else {
+			legal=false;
 		}
 		return legal;
 	}
+//	private static boolean legalNameStraightCards(String str) {
+//		boolean legal = true;
+//		if(str.length()==5) {
+//			int asciiS = (int)str.charAt(0);
+//			int value = convertCharToInt(str.charAt(0));
+//			if( (value<3)  || (value>10) ) {
+//				legal = false;
+//			}
+//			for(int i=0;i<=3;i++) {
+//				int value1 = convertCharToInt(str.charAt(i));
+//				int value2 = convertCharToInt(str.charAt(i+1));
+//				if(value1+1 !=value2 ) {
+//					legal = false;//check whether it is in sequence(increasing order)
+//				}
+//			}
+//		}
+//		else if(str.length()==6) {
+//			int asciiS = (int)str.charAt(0);
+//			int value = convertCharToInt(str.charAt(0));
+//			if( (value<3)  || (value>9) ) {
+//				legal = false;
+//			}
+//			for(int i=0;i<=4;i++) {
+//				int value1 = convertCharToInt(str.charAt(i));
+//				int value2 = convertCharToInt(str.charAt(i+1));
+//				if(value1+1 !=value2 ) {
+//					legal = false;//check whether it is in sequence(increasing order)
+//				}
+//			}
+//		}
+//		else if(str.length()==7) {
+//			int asciiS = (int)str.charAt(0);
+//			int value = convertCharToInt(str.charAt(0));
+//			if( (value<3)  || (value>8) ) {
+//				legal = false;
+//			}
+//			for(int i=0;i<=5;i++) {
+//				int value1 = convertCharToInt(str.charAt(i));
+//				int value2 = convertCharToInt(str.charAt(i+1));
+//				if(value1+1 !=value2 ) {
+//					legal = false;//check whether it is in sequence(increasing order)
+//				}
+//			}
+//		}
+//		else if(str.length()==8) {
+//			int asciiS = (int)str.charAt(0);
+//			int value = convertCharToInt(str.charAt(0));
+//			if( (value<3)  || (value>7) ) {
+//				legal = false;
+//			}
+//			for(int i=0;i<=6;i++) {
+//				int value1 = convertCharToInt(str.charAt(i));
+//				int value2 = convertCharToInt(str.charAt(i+1));
+//				if(value1+1 !=value2 ) {
+//					legal = false;//check whether it is in sequence(increasing order)
+//				}
+//			}
+//		}
+//		else if(str.length()==9) {
+//			int asciiS = (int)str.charAt(0);
+//			int value = convertCharToInt(str.charAt(0));
+//			if( (value<3)  || (value>6) ) {
+//				legal = false;
+//			}
+//			for(int i=0;i<=7;i++) {
+//				int value1 = convertCharToInt(str.charAt(i));
+//				int value2 = convertCharToInt(str.charAt(i+1));
+//				if(value1+1 !=value2 ) {
+//					legal = false;//check whether it is in sequence(increasing order)
+//				}
+//			}
+//		}
+//		else if(str.length()==10) {
+//			int asciiS = (int)str.charAt(0);
+//			int value = convertCharToInt(str.charAt(0));
+//			if( (value<3)  || (value>5) ) {
+//				legal = false;
+//			}
+//			for(int i=0;i<=8;i++) {
+//				int value1 = convertCharToInt(str.charAt(i));
+//				int value2 = convertCharToInt(str.charAt(i+1));
+//				if(value1+1 !=value2 ) {
+//					legal = false;//check whether it is in sequence(increasing order)
+//				}
+//			}
+//		}
+//		else if(str.length()==11) {
+//			int asciiS = (int)str.charAt(0);
+//			int value = convertCharToInt(str.charAt(0));
+//			if( (value<3)  || (value>4) ) {
+//				legal = false;
+//			}
+//			for(int i=0;i<=9;i++) {
+//				int value1 = convertCharToInt(str.charAt(i));
+//				int value2 = convertCharToInt(str.charAt(i+1));
+//				if(value1+1 !=value2 ) {
+//					legal = false;//check whether it is in sequence(increasing order)
+//				}
+//			}
+//		}
+//		else if(str.length()==12) {
+//			int asciiS = (int)str.charAt(0);
+//			int value = convertCharToInt(str.charAt(0));
+//			if( (value<3)  || (value>3) ) {
+//				legal = false;
+//			}
+//			for(int i=0;i<=10;i++) {
+//				int value1 = convertCharToInt(str.charAt(i));
+//				int value2 = convertCharToInt(str.charAt(i+1));
+//				if(value1+1 !=value2 ) {
+//					legal = false;//check whether it is in sequence(increasing order)
+//				}
+//			}
+//		}
+//		else {
+//			legal = false;
+//		}
+//		return legal;
+//	}
 	
 	private static boolean legalNameKingBomb(String str) {
 		if(str.equals("Ww") || str.equals("wW")) return true;
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -1418,7 +1973,13 @@ public class Controller {
 		
 	}
 
-
+	/**
+	 * 
+	 * @author Yuelin Liu
+	 * @explanation: int[14]==2 means you have 2 Aces.
+	 * @exception 
+	 * 
+	 */
 	private static int[] convertCardsIntoArray(List<Card> temp) {
 		//step 1
 		int[] a = new int[18];
@@ -1429,6 +1990,25 @@ public class Controller {
 			a[value] ++;
 		}
 		return a;
+	}
+	/**
+	 * 
+	 * @author Yuelin Liu
+	 * @explanation:  ArrayList a = 3 3 3 4 6 7 8 13 14 17; a[4]==6;
+	 * @exception 
+	 * 
+	 */
+	public static ArrayList convertCardsIntoArrayList(List<Card> temp) {
+		ArrayList result = new ArrayList();
+		int a[] = convertCardsIntoArray(temp);
+		for(int i=3; i<=17; i++) {
+			while (a[i]!=0) {
+				result.add(i);
+				a[i]--;
+			}
+			
+		}
+		return result;
 	}
 	private static int[] convertStringIntoArray(String str) {
 		//step 2
