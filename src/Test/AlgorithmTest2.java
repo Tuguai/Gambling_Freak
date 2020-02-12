@@ -7,13 +7,13 @@ import Model.*;
 import Controller.*;
 public class AlgorithmTest2 {
 	
-	private static String checkWin(ArrayList a, ArrayList b, String standardType) {
+	private static String checkWin(ArrayList a, ArrayList b, String standard) {
 		if(a.size()==0) {
 			throw new IllegalArgumentException("IllegalArgumentException");
 		}
 		boolean aHasBigger = false;
 		//Check standardType is illegal input
-		Controller2.checkHasBigger(a,Controller.tellIllegalName(standardType));
+		Controller2.checkHasBigger(a,Controller.tellIllegalName(standard),standard);
 		
 		
 		

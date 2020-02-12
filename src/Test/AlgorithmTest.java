@@ -26,7 +26,7 @@ public class AlgorithmTest {
 		if(a.length==1 && a[0]>standard) {
 			return a[0];
 		}
-		for(int i=0; i<a.length; i++) {
+		for(int i=0; i<a.length; i++) {//else
 			if(a[i]<=standard) continue;
 			int[] ARmv = removeCard(a, a[i]);
 			
@@ -61,7 +61,7 @@ public class AlgorithmTest {
 
 	
 		long t1 = System.currentTimeMillis();
-		int answer = checkWin(human,computer,4);
+		int answer = checkWin(human,computer,-1);
 		long t2 = System.currentTimeMillis();
 		System.out.println("You should play: "+answer);
 		System.out.print("Time: "+(t2-t1));
