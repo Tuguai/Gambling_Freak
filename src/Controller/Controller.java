@@ -2032,7 +2032,7 @@ public class Controller {
 	 * @exception 
 	 * 
 	 */
-	private static int convertCharToInt(char chr) {
+	public static int convertCharToInt(char chr) {
 		//int a = (int)chr;
 		if(  ((int)chr>=51)  &&   ((int)chr<=57) ) {
 			return ( (int)chr - 48    );
