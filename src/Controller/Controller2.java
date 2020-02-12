@@ -14,9 +14,9 @@ public class Controller2 {
 	 * If cardsType is "threeDOne" and standardType is "999A" and your arrayList is 3,4,5,12,14,14, so you do not have bigger card, return false!
 	 * If cardsType is "fourDTwo" and standardType is "777746" and your arrayList is 3,4,5,5,5,5,12,14,14, so you have bigger card("555534"), return true!
 	 */
-	public static boolean checkHasBigger(ArrayList a, String cardsType, String standard) {
+	public static boolean checkHasBigger(ArrayList<Integer> a, String cardsType, String standard) {
 		if(cardsType.equalsIgnoreCase("single")) {
-			if((int)(a.get(a.size()-1))>Controller.convertCharToInt(standard.charAt(0))) return true;
+			if((a.get(a.size()-1))>Controller.convertCharToInt(standard.charAt(0))) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("double")) {
 					
