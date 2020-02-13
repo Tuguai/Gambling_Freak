@@ -13,118 +13,150 @@ public class Controller2 {
 	 * For example 
 	 * If cardsType is "threeDOne" and standardType is "999A" and your arrayList is 3,4,5,12,14,14, so you do not have bigger card, return false!
 	 * If cardsType is "fourDTwo" and standardType is "777746" and your arrayList is 3,4,5,5,5,5,12,14,14, so you have bigger card("555534"), return true!
+	 * author Jianmo_Li
+	 * want to use a new array<int> to store the number of each kind of card
 	 */
 	public static boolean checkHasBigger(ArrayList<Integer> a, String cardsType, String standard) {
+		
+		int[] count_array=new int[20];
+		int bomb=0;
+		for(int i=a.size()-1;i>=0;i--){
+			count_array[a.get(i)]+=1;
+			if(count_array[a.get(i)]==4) bomb=a.get(i);//construct the count _array and return the maximum bomb  at the same time
+		}
+		if(count_array[16]==1&&count_array[17]==1){//represent the kingbomb 
+			bomb=18;
+		}
+		
 		if(cardsType.equalsIgnoreCase("single")) {
+			if(bomb!=0) return true;
 			if((a.get(a.size()-1))>Controller.convertCharToInt(standard.charAt(0))) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("double")) {
-					
+			if(bomb!=0) return true;
+			for(int i=Controller.convertCharToInt(standard.charAt(0));i<15;i++){
+				if(!(count_array[i]<2)) return true;
+				else return false;
+			}		
 		}
 		else if(cardsType.equalsIgnoreCase("triple")) {
-			
+			if(bomb!=0) return true;
+			for(int i=Controller.convertCharToInt(standard.charAt(0));i<15;i++){
+				if(!(count_array[i]<3)) return true;
+				else return false;
+			}		
 		}
 		else if(cardsType.equalsIgnoreCase("threeDOne")) {
-			
-		}
+			if(bomb!=0) return true;
+			boolean flag=false;
+			int i=Controller.convertCharToInt(standard.charAt(0));
+			for(;i<15;i++){
+				if(!(count_array[i]<3)) flag=true;
+				else return false;
+			}
+			for(int j=3;j<18;j++){
+				
+			}
+		}		
 		else if(cardsType.equalsIgnoreCase("threeDTwo")) {
-					
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards5")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards6")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards7")) {
-					
+			if(bomb!=0) return true;		
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards8")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards9")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards10")) {
-					
+			if(bomb!=0) return true;		
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards11")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards12")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("FourBomb")) {
-					
+			int i=Controller.convertCharToInt(standard.charAt(0));
+			if(bomb>i) return true;		
 		}
 		else if(cardsType.equalsIgnoreCase("FourDTwo")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("FourDTwoPair")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("KingBomb")) {
-					
+			return false;
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight3")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight4")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight5")) {
-					
+			if(bomb!=0) return true;		
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight6")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight7")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight8")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight9")) {
-					
+			if(bomb!=0) return true;		
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight10")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAABBB")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAABBBCCC")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAABBBCCCDDD")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAABBBCCCDDDEEE")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAABBBCCCDDDEEEFFF")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAA1BBB1")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAA1BBB1CCC1")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAA1BBB1CCC1DDD1")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAA1BBB1CCC1DDD1EEE1")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAA22BBB22")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAA22BBB22CCC22")) {
-			
+			if(bomb!=0) return true;
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAA22BBB22CCC22DDD22")) {
-			
+			if(bomb!=0) return true;
 		}
 		else {
 			throw new IllegalArgumentException("IllegalArgumentException");
