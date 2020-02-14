@@ -12,7 +12,7 @@ public class Controller2 {
 	 * Your objective is to check whether you have bigger cards given a certain type.
 	 * For example 
 	 * If cardsType is "threeDOne" and standardType is "999A" and your arrayList is 3,4,5,12,14,14, so you do not have bigger card, return false!
-	 * If cardsType is "fourDTwo" and standardType is "777746" and your arrayList is 3,4,5,5,5,5,12,14,14, so you have bigger card("555534"), return true!
+	 * If cardsType is "fourDTwo" and standardType is "777746" and your arrayList is 3,4,5,5,5,5,12,14,14, so you have bigger card("5555"), return true!
 	 * author Jianmo_Li
 	 * want to use a new array<int> to store the number of each kind of card
 	 */
@@ -560,6 +560,7 @@ public class Controller2 {
 		else {
 			throw new IllegalArgumentException("IllegalArgumentException");
 		}
+		return false;
 	}
 	
 	
@@ -689,6 +690,7 @@ public class Controller2 {
 		else {
 			throw new IllegalArgumentException("IllegalArgumentException");
 		}
+		return result;
 	}
 
 }
