@@ -407,6 +407,7 @@ public class Controller {
 	
 	public static String tellIllegalName(String cardsType) {
 		String str = cardsType;
+		if(cardsType.equals("-1")) return cardsType;
 		if(legalNameSingleCards(str)) return "single";
 		if(legalNameDoubleCards(str)) return "double";
 		if(legalNameThreeCards(str)) return "triple";
@@ -2103,6 +2104,14 @@ public class Controller {
 		if (n==17) return "W";
 		// if input has something else other than legal handcard, return 0;
 		return "0";		
+	}
+	public static int[] convertArrayListToCardArray(ArrayList<Integer> a){
+		int[] result = new int[18];
+		for(int i=0; i<a.size(); i++) {
+			result[a.get(i)]++;
+		}
+		return result;
+		
 	}
 	
 	

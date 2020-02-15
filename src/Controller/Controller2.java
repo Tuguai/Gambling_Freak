@@ -17,7 +17,7 @@ public class Controller2 {
 	 * want to use a new array<int> to store the number of each kind of card
 	 */
 	public static boolean checkHasBigger(ArrayList<Integer> a, String cardsType, String standard) {
-		
+		if(standard.equals("-1")) return true;
 		int[] count_array=new int[20];
 		int bomb=0;
 		for(int i=a.size()-1;i>=0;i--){
@@ -576,19 +576,31 @@ public class Controller2 {
 	 */
 	public static ArrayList<String> biggerOptions(ArrayList<Integer> a, String cardsType, String standard) {
 		ArrayList<String> result = new ArrayList<String>();
-		if(cardsType.equalsIgnoreCase("single")) {
-			int temp = Controller.convertCharToInt(standard.charAt(0));
+		int stand0 = Controller.convertCharToInt(standard.charAt(0));
+		int[] temp = Controller.convertArrayListToCardArray(a);
+		if(cardsType.equalsIgnoreCase("single")) {	
 			for(int i=0; i<a.size(); i++) {
-				if(a.get(i)>temp) {
+				if(a.get(i)>stand0) {
 					result.add(Controller.convertIntToString(a.get(i)));
 				}
 			}
 		}
 		else if(cardsType.equalsIgnoreCase("double")) {
-					
+			for(int i=3; i<18; i++) {
+				if(i>stand0 && temp[i]>=2) {
+					result.add(Controller.convertIntToString(i)+
+							Controller.convertIntToString(i));
+				}
+			}
 		}
 		else if(cardsType.equalsIgnoreCase("triple")) {
-			
+			for(int i=3; i<18; i++) {
+				if(i>stand0 && temp[i]>=3) {
+					result.add(Controller.convertIntToString(i)+
+							Controller.convertIntToString(i)
+					+Controller.convertIntToString(i));
+				}
+			}
 		}
 		else if(cardsType.equalsIgnoreCase("threeDOne")) {
 			
@@ -691,6 +703,26 @@ public class Controller2 {
 		}
 		else if(cardsType.equalsIgnoreCase("PlaneAAA22BBB22CCC22DDD22")) {
 			
+		}
+		else if(cardsType.equalsIgnoreCase("-1")) {
+			for(int i=0; i<a.size(); i++) {
+				if(a.get(i)>stand0) {
+					result.add(Controller.convertIntToString(a.get(i)));
+				}
+			}
+			for(int i=3; i<18; i++) {
+				if(i>stand0 && temp[i]>=2) {
+					result.add(Controller.convertIntToString(i)+//iiiii
+							Controller.convertIntToString(i));
+				}
+			}
+			for(int i=3; i<18; i++) {
+				if(i>stand0 && temp[i]>=3) {
+					result.add(Controller.convertIntToString(i)+
+							Controller.convertIntToString(i)
+					+Controller.convertIntToString(i));
+				}
+			}
 		}
 		else {
 			throw new IllegalArgumentException("IllegalArgumentException");

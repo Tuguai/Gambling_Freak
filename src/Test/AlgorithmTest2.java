@@ -24,7 +24,8 @@ public class AlgorithmTest2 {
 			return possibilities.get(0);
 		}
 		for(int i=0; i<possibilities.size(); i++) {
-			ArrayList<Integer> ARmv = removeCard(a, possibilities.get(i));
+			String t = possibilities.get(i);
+			ArrayList<Integer> ARmv = removeCard(a, t);
 			
 			String result1 = checkWin(ARmv, b, "-1");//b pass
 			String result2 = checkWin(b, ARmv, possibilities.get(i));//b don't pass and b plays a bigger card
@@ -37,7 +38,13 @@ public class AlgorithmTest2 {
 		ArrayList<Integer> newHand = oldHand;
 		for(int i=0; i<cards.length(); i++) {
 			int temp = Controller.convertCharToInt(cards.charAt(i));
-			newHand.remove(temp);
+			for(int j=0; j<newHand.size(); j++) {
+				if(newHand.get(j)==temp) {
+					newHand.remove(j);
+					break;
+				}
+			}
+			
 		}
 		return newHand;
 	}
@@ -46,12 +53,12 @@ public class AlgorithmTest2 {
 		ArrayList<Integer> human = new ArrayList<Integer>();
 		ArrayList<Integer> computer = new ArrayList<Integer>();
 		human.add(3);
-		human.add(3);
-		human.add(8);
+		//human.add(3);
+		//human.add(8);
 		human.add(10);
 		computer.add(4);
-		computer.add(5);
-		computer.add(6);
+		//computer.add(5);
+		//computer.add(6);
 		long t1 = System.currentTimeMillis();
 		String answer = checkWin(human,computer,"-1");
 		long t2 = System.currentTimeMillis();
