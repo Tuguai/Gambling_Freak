@@ -574,7 +574,7 @@ public class Controller2 {
 	 * If cardsType is "34567" and your arrayList is 4,5,6,7,8,9,10,12,12,14,14,16, 
 	 * There are 3 options you can play "45678","56789" and "6789t", so you have to return String{"45678","56789", "6789t"}.
 	 */
-	private static ArrayList<String> biggerOptions(ArrayList a, String cardsType) {
+	public static ArrayList<String> biggerOptions(ArrayList<Integer> a, String cardsType, String standard) {
 		ArrayList<String> result = new ArrayList<String>();
 		if(cardsType.equalsIgnoreCase("single")) {
 			
