@@ -49,10 +49,11 @@ public class AlgorithmTest2 {
 	
 	public static void main(String args[]) {
 		
-//		int[] human =    {0,0,0,0,1,0,2,2,0,0,0,2,0,0,0,0,0,0};
-//		int[] computer = {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0};
-		int [] h = {4,6,6,7,7,8,11,11,14};
-		int [] c = {5,10,10,12,15};
+
+//		int [] h = {3,3,5,5,5,6,10,10,11,15};
+//		int [] c = {3,6,7,7,13,14,14,16};
+		int [] h = {11,13};
+		int [] c = {10,12};
 		int[] human = new int[18];
 		int[] computer = new int[18];
 		for(int i=0; i<h.length; i++) {
@@ -64,7 +65,7 @@ public class AlgorithmTest2 {
 		
 		//Controller2.checkHasBigger(human, "double", "33");
 		long t1 = System.currentTimeMillis();
-		String answer = checkWin(human,computer,"-1");
+		String answer = checkWin(human,computer,"9");
 		long t2 = System.currentTimeMillis();
 		System.out.println("You should play: "+answer);
 		System.out.print("Time: "+(t2-t1));

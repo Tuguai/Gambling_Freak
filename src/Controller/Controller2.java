@@ -611,10 +611,32 @@ public class Controller2 {
 			}
 		}
 		else if(cardsType.equalsIgnoreCase("threeDOne")) {
-			
+			for(int i=stand0; i<18; i++) {
+				if(a[i]>=3) {
+					String three = Controller.convertIntToString(i)+
+							Controller.convertIntToString(i)
+					+Controller.convertIntToString(i);
+					for(int j=3; j<18; j++) {
+						if(j!=i && a[j]>0) {
+							result.add(three+Controller.convertIntToString(j));
+						}
+					}
+				}
+			}
 		}
 		else if(cardsType.equalsIgnoreCase("threeDTwo")) {
-					
+			for(int i=stand0; i<18; i++) {
+				if(a[i]>=3) {
+					String three = Controller.convertIntToString(i)+
+							Controller.convertIntToString(i)
+					+Controller.convertIntToString(i);
+					for(int j=3; j<18; j++) {
+						if(j!=i && a[j]>=2) {
+							result.add(three+Controller.convertIntToString(j)+Controller.convertIntToString(j));
+						}
+					}
+				}
+			}		
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards5")) {
 			
@@ -713,15 +735,28 @@ public class Controller2 {
 			
 		}
 		else if(cardsType.equalsIgnoreCase("-1")) {
-			for(int i=stand0; i<a.length; i++) {
-				if(a[i]>0) {
-					result.add(Controller.convertIntToString(i));
-				}
-			}
 			for(int i=stand0; i<18; i++) {
-				if(a[i]>=2) {
-					result.add(Controller.convertIntToString(i)+
-							Controller.convertIntToString(i));
+				if(a[i]>=3) {
+					String three = Controller.convertIntToString(i)+
+							Controller.convertIntToString(i)
+					+Controller.convertIntToString(i);
+					for(int j=3; j<18; j++) {
+						if(j!=i && a[j]>=2) {
+							result.add(three+Controller.convertIntToString(j)+Controller.convertIntToString(j));
+						}
+					}
+				}
+			}		//threeDtwo
+			for(int i=stand0; i<18; i++) {
+				if(a[i]>=3) {
+					String three = Controller.convertIntToString(i)+
+							Controller.convertIntToString(i)
+					+Controller.convertIntToString(i);
+					for(int j=3; j<18; j++) {
+						if(j!=i && a[j]>0) {
+							result.add(three+Controller.convertIntToString(j));
+						}
+					}
 				}
 			}
 			for(int i=stand0; i<18; i++) {
@@ -731,6 +766,18 @@ public class Controller2 {
 					+Controller.convertIntToString(i));
 				}
 			}
+			for(int i=stand0; i<18; i++) {
+				if(a[i]>=2) {
+					result.add(Controller.convertIntToString(i)+
+							Controller.convertIntToString(i));
+				}
+			}
+			for(int i=stand0; i<a.length; i++) {
+				if(a[i]>0) {
+					result.add(Controller.convertIntToString(i));
+				}
+			}
+
 		}
 		else {
 			throw new IllegalArgumentException("IllegalArgumentException");
