@@ -16,35 +16,37 @@ public class Controller2 {
 	 * author Jianmo_Li
 	 * want to use a new array<int> to store the number of each kind of card
 	 */
-	public static boolean checkHasBigger(ArrayList<Integer> a, String cardsType, String standard) {
+	public static boolean checkHasBigger(int[] a, String cardsType, String standard) {
 		if(standard.equals("-1")) return true;
-		int[] count_array=new int[20];
+		int[] count_array=a;
 		int bomb=0;
-		for(int i=a.size()-1;i>=0;i--){
-			count_array[a.get(i)]+=1;
-			if(count_array[a.get(i)]==4) bomb=a.get(i);//construct the count _array and return the maximum bomb  at the same time
-		}
+//		for(int i=a.size()-1;i>=0;i--){
+//			count_array[a.get(i)]+=1;
+//			if(count_array[a.get(i)]==4) bomb=a.get(i);//construct the count _array and return the maximum bomb  at the same time
+//		}
 		if(count_array[16]==1&&count_array[17]==1){//represent the kingbomb 
 			bomb=18;
 		}
 		
 		if(cardsType.equalsIgnoreCase("single")) {
 			if(bomb!=0) return true;
-			if((a.get(a.size()-1))>Controller.convertCharToInt(standard.charAt(0))) return true;
-			return false;
+			for(int i=Controller.convertCharToInt(standard.charAt(0))+1;i<=17;i++) {
+				if(count_array[i]>0) return true;
+				//else return false;
+			}
 		}
 		else if(cardsType.equalsIgnoreCase("double")) {
 			if(bomb!=0) return true;
 			for(int i=Controller.convertCharToInt(standard.charAt(0))+1;i<15;i++){
 				if(!(count_array[i]<2)) return true;
-				else return false;
+				//else return false;
 			}		
 		}
 		else if(cardsType.equalsIgnoreCase("triple")) {
 			if(bomb!=0) return true;
 			for(int i=Controller.convertCharToInt(standard.charAt(0))+1;i<15;i++){
 				if(!(count_array[i]<3)) return true;
-				else return false;
+				//else return false;
 			}		
 		}
 		else if(cardsType.equalsIgnoreCase("threeDOne")) {
@@ -52,7 +54,7 @@ public class Controller2 {
 			int i=Controller.convertCharToInt(standard.charAt(0))+1;
 			for(;i<15;i++){
 				if(!(count_array[i]<3)) count_array[i]-=3;
-				else return false;
+				//else return false;
 			}
 			for(int j=3;j<18;j++){
 				if(!(count_array[i]<1)) return true;
@@ -64,7 +66,7 @@ public class Controller2 {
 			int i=Controller.convertCharToInt(standard.charAt(0))+1;
 			for(;i<15;i++){
 				if(!(count_array[i]<3)) count_array[i]-=3;
-				else return false;
+				//else return false;
 			}
 			for(int j=3;j<18;j++){
 				if(!(count_array[i]<2)) return true;
@@ -574,28 +576,34 @@ public class Controller2 {
 	 * If cardsType is "34567" and your arrayList is 4,5,6,7,8,9,10,12,12,14,14,16, 
 	 * There are 3 options you can play "45678","56789" and "6789t", so you have to return String{"45678","56789", "6789t"}.
 	 */
-	public static ArrayList<String> biggerOptions(ArrayList<Integer> a, String cardsType, String standard) {
+	public static ArrayList<String> biggerOptions(int[] a, String cardsType, String standard) {
 		ArrayList<String> result = new ArrayList<String>();
 		int stand0 = Controller.convertCharToInt(standard.charAt(0));
-		int[] temp = Controller.convertArrayListToCardArray(a);
+		if(!cardsType.equalsIgnoreCase("fourBomb") && !cardsType.equalsIgnoreCase("kingBomb")) {
+			if(a[16]==1 && a[17]==1) result.add("wW");//KingBomb
+			for(int i=0; i<18; i++) {
+				if(a[i]==4) result.add(Controller.convertIntToString(i)+Controller.convertIntToString(i)+
+						Controller.convertIntToString(i)+Controller.convertIntToString(i));//Bomb
+			}
+		}
 		if(cardsType.equalsIgnoreCase("single")) {	
-			for(int i=0; i<a.size(); i++) {
-				if(a.get(i)>stand0) {
-					result.add(Controller.convertIntToString(a.get(i)));
+			for(int i=stand0; i<a.length; i++) {
+				if(a[i]>0) {
+					result.add(Controller.convertIntToString(i));
 				}
 			}
 		}
 		else if(cardsType.equalsIgnoreCase("double")) {
-			for(int i=3; i<18; i++) {
-				if(i>stand0 && temp[i]>=2) {
+			for(int i=stand0; i<18; i++) {
+				if(a[i]>=2) {
 					result.add(Controller.convertIntToString(i)+
 							Controller.convertIntToString(i));
 				}
 			}
 		}
 		else if(cardsType.equalsIgnoreCase("triple")) {
-			for(int i=3; i<18; i++) {
-				if(i>stand0 && temp[i]>=3) {
+			for(int i=stand0; i<18; i++) {
+				if(a[i]>=3) {
 					result.add(Controller.convertIntToString(i)+
 							Controller.convertIntToString(i)
 					+Controller.convertIntToString(i));
@@ -642,7 +650,7 @@ public class Controller2 {
 			
 		}
 		else if(cardsType.equalsIgnoreCase("KingBomb")) {
-					
+					return result;
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight3")) {
 			
@@ -705,19 +713,19 @@ public class Controller2 {
 			
 		}
 		else if(cardsType.equalsIgnoreCase("-1")) {
-			for(int i=0; i<a.size(); i++) {
-				if(a.get(i)>stand0) {
-					result.add(Controller.convertIntToString(a.get(i)));
+			for(int i=stand0; i<a.length; i++) {
+				if(a[i]>0) {
+					result.add(Controller.convertIntToString(i));
 				}
 			}
-			for(int i=3; i<18; i++) {
-				if(i>stand0 && temp[i]>=2) {
-					result.add(Controller.convertIntToString(i)+//iiiii
+			for(int i=stand0; i<18; i++) {
+				if(a[i]>=2) {
+					result.add(Controller.convertIntToString(i)+
 							Controller.convertIntToString(i));
 				}
 			}
-			for(int i=3; i<18; i++) {
-				if(i>stand0 && temp[i]>=3) {
+			for(int i=stand0; i<18; i++) {
+				if(a[i]>=3) {
 					result.add(Controller.convertIntToString(i)+
 							Controller.convertIntToString(i)
 					+Controller.convertIntToString(i));

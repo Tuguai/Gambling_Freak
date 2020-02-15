@@ -7,8 +7,8 @@ import Model.*;
 import Controller.*;
 public class AlgorithmTest2 {
 	
-	private static String checkWin(ArrayList<Integer> a, ArrayList<Integer> b, String standard) {
-		if(a.size()==0) {
+	private static String checkWin(int[] a, int[] b, String standard) {
+		if(a.length==0) {
 			throw new IllegalArgumentException("IllegalArgumentException");
 		}
 		boolean aHasBigger = false;
@@ -19,14 +19,17 @@ public class AlgorithmTest2 {
 			if(result.equals("0")) return "pass";//999 means array a should pass in this turn.
 		}
 		ArrayList<String> possibilities = Controller2.biggerOptions(a, Controller.tellIllegalName(standard),standard);
-		if(possibilities.size()==1) {
-			if(a.size()==possibilities.get(0).length())
-			return possibilities.get(0);
-		}
+//		if(possibilities.size()==1) {
+//			if( aHasBigger )
+//			return possibilities.get(0);
+//		}
 		for(int i=0; i<possibilities.size(); i++) {
 			String t = possibilities.get(i);
-			ArrayList<Integer> ARmv = removeCard(a, t);
+			int sum = 0; for(int j=0; j<18; j++) sum=sum+a[j];
+			if(t.length()==sum) return t;
 			
+			int[] ARmv = removeCard(a, t);
+
 			String result1 = checkWin(ARmv, b, "-1");//b pass
 			String result2 = checkWin(b, ARmv, possibilities.get(i));//b don't pass and b plays a bigger card
 			if(result2.equals("0") && !result1.equals("0")) return possibilities.get(i);
@@ -34,31 +37,32 @@ public class AlgorithmTest2 {
 		return "0";
 		
 	}
-	private static ArrayList<Integer> removeCard(ArrayList<Integer> oldHand, String cards){
-		ArrayList<Integer> newHand = oldHand;
+	private static int[] removeCard(int[] oldHand, String cards){
+		int[] newHand = oldHand.clone();
 		for(int i=0; i<cards.length(); i++) {
 			int temp = Controller.convertCharToInt(cards.charAt(i));
-			for(int j=0; j<newHand.size(); j++) {
-				if(newHand.get(j)==temp) {
-					newHand.remove(j);
-					break;
-				}
-			}
+			newHand[temp]--;
 			
 		}
 		return newHand;
 	}
 	
 	public static void main(String args[]) {
-		ArrayList<Integer> human = new ArrayList<Integer>();
-		ArrayList<Integer> computer = new ArrayList<Integer>();
-		human.add(3);
-		//human.add(3);
-		//human.add(8);
-		human.add(10);
-		computer.add(4);
-		//computer.add(5);
-		//computer.add(6);
+		
+//		int[] human =    {0,0,0,0,1,0,2,2,0,0,0,2,0,0,0,0,0,0};
+//		int[] computer = {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0};
+		int [] h = {4,6,6,7,7,8,11,11,14};
+		int [] c = {5,10,10,12,15};
+		int[] human = new int[18];
+		int[] computer = new int[18];
+		for(int i=0; i<h.length; i++) {
+			human[h[i]]++;
+		}
+		for(int i=0; i<c.length; i++) {
+			computer[c[i]]++;
+		}
+		
+		//Controller2.checkHasBigger(human, "double", "33");
 		long t1 = System.currentTimeMillis();
 		String answer = checkWin(human,computer,"-1");
 		long t2 = System.currentTimeMillis();
