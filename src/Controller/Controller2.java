@@ -24,6 +24,9 @@ public class Controller2 {
 //			count_array[a.get(i)]+=1;
 //			if(count_array[a.get(i)]==4) bomb=a.get(i);//construct the count _array and return the maximum bomb  at the same time
 //		}
+		for(int i=0; i<18; i++) {
+			if(a[i]==4) bomb = i;//Bomb
+		}
 		if(count_array[16]==1&&count_array[17]==1){//represent the kingbomb 
 			bomb=18;
 		}

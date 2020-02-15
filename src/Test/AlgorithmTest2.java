@@ -52,7 +52,7 @@ public class AlgorithmTest2 {
 
 //		int [] h = {3,3,5,5,5,6,10,10,11,15};
 //		int [] c = {3,6,7,7,13,14,14,16};
-		int [] h = {11,13};
+		int [] h = {4,4,4,4,8};
 		int [] c = {10,12};
 		int[] human = new int[18];
 		int[] computer = new int[18];
