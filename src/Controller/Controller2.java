@@ -577,7 +577,12 @@ public class Controller2 {
 	public static ArrayList<String> biggerOptions(ArrayList<Integer> a, String cardsType, String standard) {
 		ArrayList<String> result = new ArrayList<String>();
 		if(cardsType.equalsIgnoreCase("single")) {
-			
+			int temp = Controller.convertCharToInt(standard.charAt(0));
+			for(int i=0; i<a.size(); i++) {
+				if(a.get(i)>temp) {
+					result.add(Controller.convertIntToString(a.get(i)));
+				}
+			}
 		}
 		else if(cardsType.equalsIgnoreCase("double")) {
 					

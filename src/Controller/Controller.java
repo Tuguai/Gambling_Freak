@@ -2036,8 +2036,7 @@ public class Controller {
 		//int a = (int)chr;
 		if(  ((int)chr>=51)  &&   ((int)chr<=57) ) {
 			return ( (int)chr - 48    );
-		}
-		
+		}	
 		if(   (chr=='W')   ) {
 			return 17;
 		}
@@ -2061,11 +2060,49 @@ public class Controller {
 		}
 		if(   (chr=='T')  ||   (chr=='t')   ) {
 			return 10;
-		}
-		
+		}		
 		// if input has something else other than legal handcard, return 0;
-		return 0;
-		
+		return 0;		
+	}
+	public static char convertIntToChar(int n) {
+		//int a = (int)chr;
+		if (n==3) return '3';
+		if (n==4) return '4';
+		if (n==5) return '5';
+		if (n==6) return '6';
+		if (n==7) return '7';
+		if (n==8) return '8';
+		if (n==9) return '9';
+		if (n==10) return 'T';
+		if (n==11) return 'J';
+		if (n==12) return 'Q';
+		if (n==13) return 'K';
+		if (n==14) return 'A';
+		if (n==15) return '2';
+		if (n==16) return 'w';
+		if (n==17) return 'W';
+		// if input has something else other than legal handcard, return 0;
+		return '0';		
+	}
+	public static String convertIntToString(int n) {
+		//int a = (int)chr;
+		if (n==3) return "3";
+		if (n==4) return "4";
+		if (n==5) return "5";
+		if (n==6) return "6";
+		if (n==7) return "7";
+		if (n==8) return "8";
+		if (n==9) return "9";
+		if (n==10) return "T";
+		if (n==11) return "J";
+		if (n==12) return "Q";
+		if (n==13) return "K";
+		if (n==14) return "A";
+		if (n==15) return "2";
+		if (n==16) return "w";
+		if (n==17) return "W";
+		// if input has something else other than legal handcard, return 0;
+		return "0";		
 	}
 	
 	
