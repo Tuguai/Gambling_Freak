@@ -23,6 +23,11 @@ public class AlgorithmTest2 {
 //			if( aHasBigger )
 //			return possibilities.get(0);
 //		}
+		if(!standard.equals("-1")) {
+			String result = checkWin(b, a, "-1");
+			if(result.equals("0")) return "pass";
+		}
+		
 		for(int i=0; i<possibilities.size(); i++) {
 			String t = possibilities.get(i);
 			int sum = 0; for(int j=0; j<18; j++) sum=sum+a[j];
@@ -50,10 +55,11 @@ public class AlgorithmTest2 {
 	public static void main(String args[]) {
 		
 
-//		int [] h = {3,3,5,5,5,6,10,10,11,15};
-//		int [] c = {3,6,7,7,13,14,14,16};
-		int [] h = {4,4,4,4,8};
-		int [] c = {10,12};
+
+		int [] h = {3,5,6,9,9,10,11,12,13,14,15};
+		int [] c = {3,4,4,6,6,7,8,10,12,13,14,15,16};
+//		int [] h = {5,5,6,6,7,7,8};
+//		int [] c = {};
 		int[] human = new int[18];
 		int[] computer = new int[18];
 		for(int i=0; i<h.length; i++) {
@@ -65,7 +71,8 @@ public class AlgorithmTest2 {
 		
 		//Controller2.checkHasBigger(human, "double", "33");
 		long t1 = System.currentTimeMillis();
-		String answer = checkWin(human,computer,"9");
+		String answer = checkWin(human,computer,"-1");
+		//String answer = checkWin(computer,human,"-1");
 		long t2 = System.currentTimeMillis();
 		System.out.println("You should play: "+answer);
 		System.out.print("Time: "+(t2-t1));

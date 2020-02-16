@@ -590,14 +590,14 @@ public class Controller2 {
 			}
 		}
 		if(cardsType.equalsIgnoreCase("single")) {	
-			for(int i=stand0; i<a.length; i++) {
+			for(int i=stand0+1; i<a.length; i++) {
 				if(a[i]>0) {
 					result.add(Controller.convertIntToString(i));
 				}
 			}
 		}
 		else if(cardsType.equalsIgnoreCase("double")) {
-			for(int i=stand0; i<18; i++) {
+			for(int i=stand0+1; i<18; i++) {
 				if(a[i]>=2) {
 					result.add(Controller.convertIntToString(i)+
 							Controller.convertIntToString(i));
@@ -605,7 +605,7 @@ public class Controller2 {
 			}
 		}
 		else if(cardsType.equalsIgnoreCase("triple")) {
-			for(int i=stand0; i<18; i++) {
+			for(int i=stand0+1; i<18; i++) {
 				if(a[i]>=3) {
 					result.add(Controller.convertIntToString(i)+
 							Controller.convertIntToString(i)
@@ -614,7 +614,7 @@ public class Controller2 {
 			}
 		}
 		else if(cardsType.equalsIgnoreCase("threeDOne")) {
-			for(int i=stand0; i<18; i++) {
+			for(int i=stand0+1; i<18; i++) {
 				if(a[i]>=3) {
 					String three = Controller.convertIntToString(i)+
 							Controller.convertIntToString(i)
@@ -628,7 +628,7 @@ public class Controller2 {
 			}
 		}
 		else if(cardsType.equalsIgnoreCase("threeDTwo")) {
-			for(int i=stand0; i<18; i++) {
+			for(int i=stand0+1; i<18; i++) {
 				if(a[i]>=3) {
 					String three = Controller.convertIntToString(i)+
 							Controller.convertIntToString(i)
@@ -642,13 +642,50 @@ public class Controller2 {
 			}		
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards5")) {
-			
+			int count = 0;
+			for(int i=stand0+1; i<18; i++) {
+				if(a[i]>0) {
+					count++;
+					if(count>=5) {
+						result.add(Controller.convertIntToString(i-4)+Controller.convertIntToString(i-3)+
+								Controller.convertIntToString(i-2)+Controller.convertIntToString(i-1)+
+								Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards6")) {
-			
+			int count = 0;
+			for(int i=stand0+1; i<18; i++) {
+				if(a[i]>0) {
+					count++;
+					if(count>=6) {
+						result.add(Controller.convertIntToString(i-5)+Controller.convertIntToString(i-4)+
+								Controller.convertIntToString(i-3)+Controller.convertIntToString(i-2)+
+								Controller.convertIntToString(i-1)+Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards7")) {
-					
+			int count = 0;
+			for(int i=stand0+1; i<18; i++) {
+				if(a[i]>0) {
+					count++;
+					if(count>=7) {
+						result.add(Controller.convertIntToString(i-6)+Controller.convertIntToString(i-5)+
+								Controller.convertIntToString(i-4)+Controller.convertIntToString(i-3)+
+								Controller.convertIntToString(i-2)+Controller.convertIntToString(i-1)+
+										Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}
 		}
 		else if(cardsType.equalsIgnoreCase("StraightCards8")) {
 			
@@ -678,13 +715,52 @@ public class Controller2 {
 					return result;
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight3")) {
-			
+			int count = 0;
+			for(int i=stand0+1; i<18; i++) {
+				if(a[i]>=2) {
+					count++;
+					if(count>=3) {
+						result.add(Controller.convertIntToString(i-2)+Controller.convertIntToString(i-2)+
+								Controller.convertIntToString(i-1)+Controller.convertIntToString(i-1)+
+								Controller.convertIntToString(i)+Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}	
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight4")) {
-			
+			int count = 0;
+			for(int i=stand0+1; i<18; i++) {
+				if(a[i]>=2) {
+					count++;
+					if(count>=4) {
+						result.add(Controller.convertIntToString(i-3)+Controller.convertIntToString(i-3)+
+								Controller.convertIntToString(i-2)+Controller.convertIntToString(i-2)+
+								Controller.convertIntToString(i-1)+Controller.convertIntToString(i-1)+
+								Controller.convertIntToString(i)+Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight5")) {
-					
+			int count = 0;
+			for(int i=stand0+1; i<18; i++) {
+				if(a[i]>=2) {
+					count++;
+					if(count>=5) {
+						result.add(Controller.convertIntToString(i-4)+Controller.convertIntToString(i-4)+
+								Controller.convertIntToString(i-3)+Controller.convertIntToString(i-3)+
+								Controller.convertIntToString(i-2)+Controller.convertIntToString(i-2)+
+								Controller.convertIntToString(i-1)+Controller.convertIntToString(i-1)+
+								Controller.convertIntToString(i)+Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}
 		}
 		else if(cardsType.equalsIgnoreCase("DoubleStraight6")) {
 			
@@ -737,8 +813,8 @@ public class Controller2 {
 		else if(cardsType.equalsIgnoreCase("PlaneAAA22BBB22CCC22DDD22")) {
 			
 		}
-		else if(cardsType.equalsIgnoreCase("-1")) {
-			for(int i=stand0; i<18; i++) {
+		else if(cardsType.equalsIgnoreCase("-1")) {		
+			for(int i=3; i<=14; i++) {
 				if(a[i]>=3) {
 					String three = Controller.convertIntToString(i)+
 							Controller.convertIntToString(i)
@@ -750,7 +826,7 @@ public class Controller2 {
 					}
 				}
 			}		//threeDtwo
-			for(int i=stand0; i<18; i++) {
+			for(int i=3; i<=14; i++) {
 				if(a[i]>=3) {
 					String three = Controller.convertIntToString(i)+
 							Controller.convertIntToString(i)
@@ -761,22 +837,104 @@ public class Controller2 {
 						}
 					}
 				}
-			}
-			for(int i=stand0; i<18; i++) {
+			}		//threeDOne
+			int count = 0;
+			for(int i=3; i<=14; i++) {
+				if(a[i]>0) {
+					count++;
+					if(count>=5) {
+						result.add(Controller.convertIntToString(i-4)+Controller.convertIntToString(i-3)+
+								Controller.convertIntToString(i-2)+Controller.convertIntToString(i-1)+
+								Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}		//StraightCards5
+			count = 0;
+			for(int i=3; i<=14; i++) {
+				if(a[i]>0) {
+					count++;
+					if(count>=6) {
+						result.add(Controller.convertIntToString(i-5)+Controller.convertIntToString(i-4)+
+								Controller.convertIntToString(i-3)+Controller.convertIntToString(i-2)+
+								Controller.convertIntToString(i-1)+Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}		//StraightCards6
+			count = 0;
+			for(int i=3; i<=14; i++) {
+				if(a[i]>0) {
+					count++;
+					if(count>=7) {
+						result.add(Controller.convertIntToString(i-6)+Controller.convertIntToString(i-5)+
+								Controller.convertIntToString(i-4)+Controller.convertIntToString(i-3)+
+								Controller.convertIntToString(i-2)+Controller.convertIntToString(i-1)+
+										Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}		//StraightCards7
+			count = 0;
+			for(int i=3; i<=14; i++) {
+				if(a[i]>=2) {
+					count++;
+					if(count>=3) {
+						result.add(Controller.convertIntToString(i-2)+Controller.convertIntToString(i-2)+
+								Controller.convertIntToString(i-1)+Controller.convertIntToString(i-1)+
+								Controller.convertIntToString(i)+Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}		//DoubleStraight3
+			count = 0;
+			for(int i=3; i<=14; i++) {
+				if(a[i]>=2) {
+					count++;
+					if(count>=4) {
+						result.add(Controller.convertIntToString(i-3)+Controller.convertIntToString(i-3)+
+								Controller.convertIntToString(i-2)+Controller.convertIntToString(i-2)+
+								Controller.convertIntToString(i-1)+Controller.convertIntToString(i-1)+
+								Controller.convertIntToString(i)+Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}		//DoubleStraight4
+			count = 0;
+			for(int i=3; i<=14; i++) {
+				if(a[i]>=2) {
+					count++;
+					if(count>=5) {
+						result.add(Controller.convertIntToString(i-4)+Controller.convertIntToString(i-4)+
+								Controller.convertIntToString(i-3)+Controller.convertIntToString(i-3)+
+								Controller.convertIntToString(i-2)+Controller.convertIntToString(i-2)+
+								Controller.convertIntToString(i-1)+Controller.convertIntToString(i-1)+
+								Controller.convertIntToString(i)+Controller.convertIntToString(i));
+					}
+				}else {
+					count = 0;
+				}
+			}	//DoubleStraight5
+			for(int i=3; i<=14; i++) {
 				if(a[i]>=3) {
 					result.add(Controller.convertIntToString(i)+
 							Controller.convertIntToString(i)
 					+Controller.convertIntToString(i));
 				}
 			}
-			for(int i=stand0; i<18; i++) {
+			for(int i=3; i<=17; i++) {
 				if(a[i]>=2) {
 					result.add(Controller.convertIntToString(i)+
 							Controller.convertIntToString(i));
 				}
 			}
-			for(int i=stand0; i<a.length; i++) {
-				if(a[i]>0) {
+			for(int i=3; i<=17; i++) {
+				if(a[i]>=1) {
 					result.add(Controller.convertIntToString(i));
 				}
 			}
